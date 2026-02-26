@@ -822,7 +822,7 @@ h4 {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.93) 0%,rgba(0,0,0,0.79) 13%,rgba(0,0,0,0) 28%,rgba(0,0,0,0) 29%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: linear-gradient(135deg, rgba(0,0,0,0.93) 0%,rgba(0,0,0,0.83) 19%,rgba(0,0,0,0.79) 26%,rgba(0,0,0,0.03) 50%,rgba(0,0,0,0) 51%);
   color: var(--text-light);
   margin: 0;
   padding: 1rem 1.5rem;
