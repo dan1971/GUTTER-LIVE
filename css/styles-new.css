@@ -62,7 +62,7 @@ a :active, a:hover, a:focus {
 
 h4 {
   font-weight: 700;
-  margin: 0 .3rem 0;
+  margin: 0  0 .5rem;
   font-size: 1.3rem;
 }
 
@@ -906,7 +906,7 @@ h4 {
 }
 
 .contact-item p{
-  font-weight: 600;
+font-weight: 600;
 line-height: 1.1rem;
 }
 
