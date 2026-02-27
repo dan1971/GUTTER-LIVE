@@ -5,7 +5,7 @@
 
 /* Root Variables */
 :root {
-  --primary-color: #0A1C26;
+  --primary-color: #0a1c26;
   --secondary-color: #2A4759;
   --accent-color: #62B7D9;
   --text-light: #F2F2F2;
@@ -28,8 +28,6 @@
 --lime-cream: hsla(78, 98%, 76%, 1);
 --tangerine-dream: hsla(22, 85%, 69%, 1);
 }
-
-
 
 body {
     margin: 0;
@@ -822,8 +820,8 @@ h4 {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, rgba(0,0,0,0.93) 0%,rgba(0,0,0,0.83) 19%,rgba(0,0,0,0.79) 26%,rgba(0,0,0,0.03) 50%,rgba(0,0,0,0) 51%);
-  color: var(--text-light);
+  background: linear-gradient(135deg,  rgba(0,0,0,0.93) 0%,rgba(0,0,0,0.83) 19%,rgba(2,6,9,0.79) 26%,rgba(10,28,38,0.03) 50%,rgba(10,28,38,0) 51%); 
+
   margin: 0;
   padding: 1rem 1.5rem;
   font-size: 1.2rem;
