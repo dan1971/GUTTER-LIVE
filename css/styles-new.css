@@ -60,7 +60,7 @@ a :active, a:hover, a:focus {
 
 h4 {
   font-weight: 700;
-  margin: 0  0 .5rem;
+  margin: 1rem 0 .3rem 0;
   font-size: 1.3rem;
 }
 
@@ -845,14 +845,12 @@ h4 {
 
 /**/
 .footer-inner-left {
-  width:67%;
   margin: 0 auto;
   gap: 2rem;
   align-items: flex-start;
 }
 
 .footer-inner-right {
-  width:50%;
   margin: 0 auto;
   gap: 2rem;
   align-items: flex-start;
@@ -883,7 +881,9 @@ h4 {
 
 .footer-content {
   max-width: 1200px;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
   gap: 3rem;
   align-items: start;
 }
@@ -901,6 +901,20 @@ h4 {
   margin: 0 0 1rem 0;
   font-size: 0.8rem;
   color: var(--text-light); 
+}
+
+.service-area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width:fit-content;
+  gap: 3rem;
+  margin-top: 0.5rem;
+}
+
+
+.service-area-grid ul {
+  padding: 0 1rem 0 1rem;
+  margin: 0;
 }
 
 .contact-item p{
@@ -939,7 +953,7 @@ line-height: 1.1rem;
   font-size: 0.9rem;
 }
 
-.checkbox-group label { display:inline-flex; align-items:center; gap:6px; margin-right:8px; font-weight:500; }
+.checkbox-group label { display:inline-flex; align-items:center; gap:6px; margin-right:8px; font-size: 0.6rem; font-weight:500; }
 
 .form-actions { margin-top: 0.5rem; }
 
@@ -948,6 +962,12 @@ line-height: 1.1rem;
 .footer-form-btn {
   display: grid; 
   justify-content:right;
+}
+.footer-bottom{
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--text-light);
 }
 
 
