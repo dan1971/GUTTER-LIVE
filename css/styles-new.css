@@ -789,10 +789,20 @@ a:active {
 
 .gallery-grid img:hover {
   opacity: 1;
-  transform: scale(1.1) rotate(4deg);
   filter:saturate() drop-shadow(2px 4px 6px black);
   z-index: 2;
+  transform: rotate(-3deg);
 }
+
+  .gallery-grid img:hover:nth-child(even){
+  transform: rotate(3deg);
+}
+
+  /* .gallery-grid img:hover:nth-child(even){
+  transform: rotate(3deg);
+} */
+
+
 
 /* ===========================
    FEATURED WORK SECTION
