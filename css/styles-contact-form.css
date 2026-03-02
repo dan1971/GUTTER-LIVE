@@ -1,0 +1,100 @@
+.form-container-all {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.form-submit-message-container {
+  display: none;
+  position:absolute;
+  top:0;
+  left:0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  z-index: 120;
+  place-items: center;
+}
+
+.form-error-mssge {
+  font-family: arial;
+  font-size: 0.7rem;
+  color:#ff7739;
+  margin: 0 0 3px 6px;
+}
+
+.loading-text-spinner-container {
+  position:absolute;
+  background: #0a1c26db;
+  display:grid;
+  grid-template-rows: auto auto;
+  align-content: center;
+  width:100%;
+  height:100%;
+  grid-row-gap: 10px;
+  place-items: center;
+  z-index: 140;
+  text-align: center;
+}
+
+.spinner-text-body {
+  font-family: arial;
+  line-height: 1rem;
+  color:#fff;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  border: 3px solid;
+  border-color: #306b82 #325c76 transparent transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+
+}
+
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  border: 3px solid;
+ border-color: transparent transparent #2a4759 #2a4759;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  animation: rotationBack 0.5s linear infinite;
+  transform-origin: center center;
+}
+.loader::before {
+  width: 32px;
+  height: 32px;
+ border-color: #33728b #33728b transparent transparent;
+  animation: rotation 1.5s linear infinite;
+}
+    
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 
+@keyframes rotationBack {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
