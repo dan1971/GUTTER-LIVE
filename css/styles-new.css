@@ -7,7 +7,7 @@
 :root {
   --primary-color: #0a1c26;
   --secondary-color: #2A4759;
-  --accent-color: #62B7D9;
+  --accent-color: #62b7d9;
   --text-light: #F2F2F2;
   --text-dark: #333;
   --bg-light: #B0B7BF;
@@ -45,10 +45,23 @@ body {
     transform-style: preserve-3d;
 }
 
-a :active, a:hover, a:focus {
+a:link {
+  color: var(--accent-color) /* Blue for unvisited links (example color) */
+}
+a:visited {
+  color: var(--dream-dark); /* Purple for visited links (example color) */
+}
+a:hover {
+  color: var(--text-light); /* Red on hover (example color) */
+}
+a:active {
+  color: var(--accent-color); /* Red when clicked (example color) */
+}
+
+/* a :active, a:hover, a:focus {
     color: inherit;
     text-decoration: none;
-}
+} */
 
 @font-face {
   font-family: 'Wham-Bang'; /* A name you choose for the font */
@@ -56,12 +69,6 @@ a :active, a:hover, a:focus {
   font-weight: normal; /* Optional descriptors */
   font-style: normal;
   font-display: swap; /* Helps control font loading behavior */
-}
-
-h4 {
-  font-weight: 700;
-  margin: 1rem 0 .3rem 0;
-  font-size: 1.3rem;
 }
 
 /* ===========================
@@ -230,6 +237,7 @@ h4 {
 }
 
 .hero-content {
+  container-type: normal;
   position: relative;
   display: grid;
   grid-template-rows: auto;
@@ -237,7 +245,6 @@ h4 {
   z-index: 2;
   text-align: center;
   color: var(--text-light);
-  width: 58%;
   padding: 6rem 2rem 8rem;
 }
 
@@ -325,11 +332,11 @@ h4 {
 }
 
 .hero-content h4 {
-  font-size: 1.1rem;
+  font-size: (1rem, 0.875rem + 0.5cqi, 1.25rem);
+  /* font-size: clamp(.8rem 1rem 1.1rem); */
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 1px;
-
 }
 
 .hero-content p {
@@ -344,6 +351,9 @@ h4 {
   justify-content: center;
   flex-wrap: wrap;
   margin: 1.3rem 0 0 0;
+  a{
+   color:rgb(43, 48, 27);
+  }
 }
 
 /* ===========================
@@ -792,7 +802,7 @@ h4 {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 2rem;
 }
 
@@ -888,6 +898,13 @@ h4 {
   align-items: start;
 }
 
+.footer-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 1rem 0 .3rem 0;
+  letter-spacing: 1px;
+}
 .contact-heading {
   color: var(--fresh-sky);
 }
@@ -898,7 +915,7 @@ h4 {
 }
 
 .contact-item {
-  margin: 0 0 1rem 0;
+  margin: 0 0 1.4rem 0;
   font-size: 0.8rem;
   color: var(--text-light); 
 }
@@ -979,19 +996,26 @@ line-height: 1.1rem;
 }
 .footer-social {
   margin-top: 1rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
   gap: 1rem;
 }
 
+
 .social-icon {
   display: inline-block;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--text-light);
-  color: var(--primary-color);
+  width: 46px;
+  height: 46px;
+  /* border-radius: 50%; */
+  /* background: var(--text-light); */
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
+.footer-social-link{
+font-size: 0.8rem;
+align-self: center;
+}
+
+
 
 .social-icon:hover { transform: translateY(-3px); }
 
@@ -1001,12 +1025,11 @@ line-height: 1.1rem;
   display: block;
 }
 
-.social-icon svg {
-  width: 20px;
-  height: 20px;
+.social-icon-facebook {
+  width: 116px;
+  height: auto;
   display: block;
-  margin: 12px auto;
-  fill: var(--primary-color);
+  fill: #ffffff;
 }
 
 /* keep legacy footer item styles for safety */
