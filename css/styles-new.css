@@ -78,9 +78,13 @@ a:active {
 .header {
   background-color: var(--primary-color);
   padding: 1rem 2rem;
-  position: relative;
+  position: sticky; 
+  top: 0;
   z-index: 100;
+  filter: drop-shadow(-3px 6px 4px rgba(0, 0, 0, .4));
 }
+
+
 
 .header-content {
   max-width: 1200px;
@@ -637,11 +641,11 @@ a:active {
   z-index: -1; /* Places the overlay behind the container's content */
 }
 
-.cards-grid {
+.service-cards-grid {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 2rem;
 }
 
@@ -866,7 +870,10 @@ a:active {
   align-items: flex-start;
 }
 
-.footer-brand {
+  .footer-brand {
+  display:grid;
+  width:100%;
+  padding:.5rem 0 .5rem 0;
   text-align: left;
   margin: 0;
   flex: 0 0 30%;
@@ -909,6 +916,20 @@ a:active {
   color: var(--fresh-sky);
 }
 
+
+sup, sub {
+  font-size: calc(0.4rem + 4px);
+  /* vertical-align: baseline; */
+  position: relative; 
+  /* top: calc(-0.5 * 0.83 * 2 * (1rem - 4px));  */
+  /* Simplified top: calc(-0.83em + 3.32px) */
+}
+
+/* sub {
+  top: calc(0.25 * 0.83 * 2 * (1rem - 4px)); 
+  /* Simplified top: calc(0.42em - 1.66px) */
+} */
+
 .subnote{
   font-size: 0.6rem;
   color: var(--text-light);
@@ -935,7 +956,7 @@ a:active {
 }
 
 .contact-item p{
-font-weight: 600;
+font-weight: 500;
 line-height: 1.1rem;
 }
 
@@ -943,7 +964,7 @@ line-height: 1.1rem;
   color: var(--text-light);
   text-decoration: underline;
   text-underline-offset: 3px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 /* Contact form styles */
@@ -994,6 +1015,7 @@ line-height: 1.1rem;
   .footer-inner-right { flex: 1 1 auto; }
   .footer-brand { flex: none; }
 }
+
 .footer-social {
   margin-top: 1rem;
   display: grid;
@@ -1010,6 +1032,7 @@ line-height: 1.1rem;
   /* background: var(--text-light); */
   box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
+
 .footer-social-link{
 font-size: 0.8rem;
 align-self: center;
@@ -1069,9 +1092,16 @@ align-self: center;
     width: 100%;
     max-width: 300px;
   }
-
-  .cards-grid {
-    grid-template-columns: 1fr 1fr;
+  
+.service-cards-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 2rem;
+}
+  .service-cards-grid {
+    grid-template-columns: 1fr;
   }
 
   .testimonials-grid {
@@ -1089,6 +1119,22 @@ align-self: center;
   .footer-content {
     grid-template-columns: 1fr;
   }
+
+  .footer-logo {
+  display: block;
+  width: 110%;
+  height: auto;
+  max-width: 217px;
+  }
+
+  .footer-brand {
+  display:grid;
+  width:100%;
+  padding:.5rem 0 .5rem 0;
+  text-align: left;
+  margin: 0;
+  flex: 0 0 30%;
+}
 
   .featured-work h2 {
     font-size: 1.5rem;
