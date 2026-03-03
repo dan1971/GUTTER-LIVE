@@ -784,18 +784,18 @@ a:active {
   transition: all 0.5s ease;
   filter:sepia(.5);
   z-index: 1;
-  transform: rotate(0);
+  transform: rotate(0) scale(1);;
 }
 
 .gallery-grid img:hover {
   opacity: 1;
   filter:saturate() drop-shadow(2px 4px 6px black);
   z-index: 2;
-  transform: rotate(-3deg);
+  transform: rotate(-3deg) scale(1.05);
 }
 
   .gallery-grid img:hover:nth-child(even){
-  transform: rotate(3deg);
+  transform: rotate(3deg) scale(1.05);
 }
 
   /* .gallery-grid img:hover:nth-child(odd){
