@@ -7,7 +7,7 @@ require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-define('GUSER', 'servicerequest@rainreadyguttersolutions.com'); // GMail username
+define('GUSER', '_mainaccount@saz.xjw.temporary.site'); // GMail username
 define('GPWD', 'MutterGutter33!'); // GMail password
 
 $send_to = "danrollans100@gmail.com";
@@ -27,7 +27,7 @@ function smtpmailer($send_to, $from, $from_name, $subject, $body) {
     $mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true;  // authentication enabled
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-    $mail->Host = 'smtp0101.titan.email';
+    $mail->Host = 'mail.saz.xjw.temporary.site';
     $mail->Port = 465; 
     $mail->Username = GUSER;  
     $mail->Password = GPWD;           
