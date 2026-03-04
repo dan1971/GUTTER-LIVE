@@ -153,10 +153,16 @@ canvas.height = parentHeight;
 //--------------CONTACT FORM SUBMISSION --------------
 
 $("#contact-form-submit").on("click", (e)=>{
+	let serviceCheckboxesClicked=[];
+ 	$('input[name="service[]"]:checked').each(function() {
+            serviceCheckboxesClicked.push($(this).val());
+        });
+
 	e.preventDefault();
 	let cfName =  $('input[name="name"]').val();
 	let cfPhone =  $('input[name="phone"]').val();
 	let cfEmail =  $('input[name="email"]').val();
+	let cfServicesChecked = serviceCheckboxesClicked;
 	let cfMessage = $('#message').val();
 
 // CONTACT FORM ERROR CHECK START
@@ -179,38 +185,38 @@ $("#contact-form-submit").on("click", (e)=>{
 	let isValidcfEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cfEmail);
 	let errors = [0,0,0,0];
 		if(cfName == ""){
-			$('#cfName').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#cfName').css({'border-color':'red','border-width':'2px'});
+			$('#cfName').prev().html("<span style='color: #FF7738;'>*Enter Name</span>");
+			$('#cfName').css({'border-color':'#FF7738','border-width':'2px'});
 			errors[0] = 1;
 		} else {
 			$('#cfName').prev().html("");
-			$('#cfName').css({'border-color':'#ccc','border-width':'1px'});
+			$('#cfName').css({'border-color':'#ffffff33','border-width':'1px'});
 			scfName = $.sanitize(cfName);
 			errors[0] = 0;
 		}
 		if(cfEmail == ""){
-			$('#cfEmail').prev().html("<span style='color: red;'>*Enter cfEmail</span>");
-			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').prev().html("<span style='color: #FF7738;'>*Enter email</span>");
+			$('#cfEmail').css({'border-color':'#FF7738','border-width':'2px'});
 			errors[2] = 1;
 		} else if(cfEmail != "" && isValidcfEmail == false) {
-			$('#cfEmail').prev().html("<span style='color: red;'>*Enter a valid cfEmail</span>");
-			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').prev().html("<span style='color: #FF7738;'>*Enter a valid email</span>");
+			$('#cfEmail').css({'border-color':'#FF7738','border-width':'2px'});
 			errors[2] = 1;
 		} else {
 			$('#cfEmail').prev().html("");
-			$('#cfEmail').css({'border-color':'#ccc','border-width':'1px'});
+			$('#cfEmail').css({'border-color':'#ffffff33','border-width':'1px'});
 			errors[2] = 0;
 		}
 
-		if($.trim(cfMessage) === ""){
-			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
-			$('#message').css({'border-color':'red','border-width':'2px'});
-			errors[3] = 1;
-		} else {
-			$('#message').prev().html("");
-			$('#message').css({'border-color':'#ccc','border-width':'1px'});
-			errors[3] = 0;
-		}
+		// if($.trim(cfMessage) === ""){
+		// 	$('#message').prev().html("<span style='color: #FF7738;'>*Enter a Message</span>");
+		// 	$('#message').css({'border-color':'red','border-width':'2px'});
+		// 	errors[3] = 1;
+		// } else {
+		// 	$('#message').prev().html("");
+		// 	$('#message').css({'border-color':'#ccc','border-width':'1px'});
+		// 	errors[3] = 0;
+		// }
 		
 		let findErrors = errors.includes(1);
 		
@@ -222,35 +228,58 @@ $("#contact-form-submit").on("click", (e)=>{
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
 			setTimeout(()=>{
-				sendInfo(scfName,cfPhone,cfEmail,cfMessage);
+				sendInfo(scfName,cfPhone,cfEmail,cfServicesChecked,cfMessage);
 				$('#cfName')[0].value = "";  
-				$('#phone')[0].value = ""; 
+				$('#cfPhone')[0].value = ""; 
 				$('#cfEmail')[0].value = "";
-				$('#message')[0].value="";
+				$('#cfMessage')[0].value="";
 			}, 1000
 			);
 		}
 });
 
-	sendInfo = (Fn,Ln,e,m)=>{
-		$.ajax({
-        type: 'POST',
-        url: "contact_form_submit.php",
-        data: { firstname: Fn, phone: Ln, cfEmail: e, message: m }
- 		 }).done(function (n) {
-			let j = JSON.parse(n);
-			let result=j[0];
-			let msg=j[1];
- 		 	if(result=="error"){
- 		 		errorFunction(msg);
- 		 	} else {
- 		 		let userName = msg.replace(/"/g, '');
- 		 		 successFunction(userName);
-			}
+	sendInfo = (Fn,Ph,e,ch,m)=>{
+		// $.ajax({
+		 let data = [Fn, Ph, e, ch, m];
+		
+console.log(data)
+        // type: 'POST',
+        // url: "contact_form_submit.php",
+        // data: { firstname: Fn, phone: Ph, email: e, message: m }
+ 		//  }).done(function (n) {
+		// 	let j = JSON.parse(n);
+		// 	let result=j[0];
+		// 	let msg=j[1];
+ 		//  	if(result=="error"){
+ 		//  		errorFunction(msg);
+ 		//  	} else {
+ 		//  		let userName = msg.replace(/"/g, '');
+ 		//  		 successFunction(userName);
+		// 	}
 			 		 	
- 		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-		});
+ 		//  }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
+		// });
 	};
+
+	// sendInfo = (Fn,Ph,e,m)=>{
+	// 	$.ajax({
+    //     type: 'POST',
+    //     url: "contact_form_submit.php",
+    //     data: { firstname: Fn, phone: Ph, email: e, message: m }
+ 	// 	 }).done(function (n) {
+	// 		let j = JSON.parse(n);
+	// 		let result=j[0];
+	// 		let msg=j[1];
+ 	// 	 	if(result=="error"){
+ 	// 	 		errorFunction(msg);
+ 	// 	 	} else {
+ 	// 	 		let userName = msg.replace(/"/g, '');
+ 	// 	 		 successFunction(userName);
+	// 		}
+			 		 	
+ 	// 	 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
+	// 	});
+	// };
 	
 	successFunction = (r)=>{
 		let h = $('.form-container-all').height();

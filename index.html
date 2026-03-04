@@ -228,14 +228,14 @@
               <div class="form-row">
                 <label>Services Needed</label>
                 <div class="checkbox-group">
-                  <label><input type="checkbox" name="service[]" value="install"> Install</label>
-                  <label><input type="checkbox" name="service[]" value="repair"> Repair</label>
-                  <label><input type="checkbox" name="service[]" value="inspectionS"> Inspection</label>
+                  <label><input type="checkbox" id="cfInstallCheckbox" name="service[]" value="Install"> Install</label>
+                  <label><input type="checkbox" id="cfRepairCheckbox" name="service[]" value="Repair"> Repair</label>
+                  <label><input type="checkbox" id="cfInspectionCheckbox" name="service[]" value="Inspection"> Inspection</label>
                 </div>
               </div>
               <div class="form-row">
                 <label for="cfMessage">Message</label>
-                <textarea id="cfMessage" name="message" rows="4"></textarea>
+                <textarea id="message" name="message" rows="4"></textarea>
               </div>
               <div class="form-row footer-form-btn form-actions">
                 <button id="contact-form-submit" class="btn btn-primary">Send Request</button>
