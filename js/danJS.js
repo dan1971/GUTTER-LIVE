@@ -208,15 +208,15 @@ $("#contact-form-submit").on("click", (e)=>{
 			errors[2] = 0;
 		}
 
-		// if($.trim(cfMessage) === ""){
-		// 	$('#message').prev().html("<span style='color: #FF7738;'>*Enter a Message</span>");
-		// 	$('#message').css({'border-color':'red','border-width':'2px'});
-		// 	errors[3] = 1;
-		// } else {
-		// 	$('#message').prev().html("");
-		// 	$('#message').css({'border-color':'#ccc','border-width':'1px'});
-		// 	errors[3] = 0;
-		// }
+		if($.trim(cfMessage) === ""){
+			$('#message').prev().html("<span style='color: #FF7738;'>*Enter a Message</span>");
+			$('#message').css({'border-color':'red','border-width':'2px'});
+			errors[3] = 1;
+		} else {
+			$('#message').prev().html("");
+			$('#message').css({'border-color':'#ccc','border-width':'1px'});
+			errors[3] = 0;
+		}
 		
 		let findErrors = errors.includes(1);
 		
@@ -238,48 +238,25 @@ $("#contact-form-submit").on("click", (e)=>{
 		}
 });
 
-	sendInfo = (Fn,Ph,e,ch,m)=>{
-		// $.ajax({
-		 let data = [Fn, Ph, e, ch, m];
-		
-console.log(data)
-        // type: 'POST',
-        // url: "contact_form_submit.php",
-        // data: { firstname: Fn, phone: Ph, email: e, message: m }
- 		//  }).done(function (n) {
-		// 	let j = JSON.parse(n);
-		// 	let result=j[0];
-		// 	let msg=j[1];
- 		//  	if(result=="error"){
- 		//  		errorFunction(msg);
- 		//  	} else {
- 		//  		let userName = msg.replace(/"/g, '');
- 		//  		 successFunction(userName);
-		// 	}
+	sendInfo = (Fn,Ph,e,s,m)=>{
+		$.ajax({
+        type: 'POST',
+        url: "contact_form_submit.php",
+        data: { firstname: Fn, phone: Ph, email: e, service: s,message: m }
+ 		 }).done(function (n) {
+			let j = JSON.parse(n);
+			let result=j[0];
+			let msg=j[1];
+ 		 	if(result=="error"){
+ 		 		errorFunction(msg);
+ 		 	} else {
+ 		 		let userName = msg.replace(/"/g, '');
+ 		 		 successFunction(userName);
+			}
 			 		 	
- 		//  }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-		// });
+ 		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
+		});
 	};
-
-	// sendInfo = (Fn,Ph,e,m)=>{
-	// 	$.ajax({
-    //     type: 'POST',
-    //     url: "contact_form_submit.php",
-    //     data: { firstname: Fn, phone: Ph, email: e, message: m }
- 	// 	 }).done(function (n) {
-	// 		let j = JSON.parse(n);
-	// 		let result=j[0];
-	// 		let msg=j[1];
- 	// 	 	if(result=="error"){
- 	// 	 		errorFunction(msg);
- 	// 	 	} else {
- 	// 	 		let userName = msg.replace(/"/g, '');
- 	// 	 		 successFunction(userName);
-	// 		}
-			 		 	
- 	// 	 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-	// 	});
-	// };
 	
 	successFunction = (r)=>{
 		let h = $('.form-container-all').height();

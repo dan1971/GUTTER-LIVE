@@ -7,14 +7,17 @@ require './PHPMailer/src/Exception.php';
 require './PHPMailer/src/PHPMailer.php';
 require './PHPMailer/src/SMTP.php';
 
-define('GUSER', 'art@falloutzones.com'); // GMail username
-define('GPWD', 'qxjy zbog xbez wjdu'); // GMail password
+define('GUSER', 'servicerequest@rainreadyguttersolutions.com'); // GMail username
+define('GPWD', 'MutterGutter33!'); // GMail password
 
-$send_to = "bryan@falloutzones.com";
+$send_to = "danrollans100@gmail.com;
 
-$from = $_POST['email']; 
+
 $from_name = $_POST['firstname'];
-$subject = "Fallout Zones Inquiry";
+$phone = $_POST['phone']; 
+$from = $_POST['email'];
+$subject = "Gutter Service Request";
+$service = $_POST['service'];
 $body = $_POST['message'];
 
 function smtpmailer($to, $from, $from_name, $subject, $body) { 
@@ -24,14 +27,14 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail->SMTPDebug = 0;  // debugging: 1 = errors and messages, 2 = messages only
     $mail->SMTPAuth = true;  // authentication enabled
     $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-    $mail->Host = 'smtp.gmail.com';
+    $mail->Host = 'smtp0101.titan.email';
     $mail->Port = 465; 
     $mail->Username = GUSER;  
     $mail->Password = GPWD;           
     $mail->AddReplyTo($from, $from_name);
     $mail->SetFrom($from, $from);
     $mail->Subject = $subject;
-    $mail->Body = "From: " . $from_name ."\n". "Email: " . $from  ."\n". "Message: " . $body;
+    $mail->Body = "From: " . $from_name . "\n" . "Email: " . $from  . "Phone Number: " . $phone . "Service Requested: " . $service . "\n" . "Message: " . $body;
     $mail->AddAddress($to);
     if(!$mail->Send()) {
         $error = 'Mail error: '.$mail->ErrorInfo; 
