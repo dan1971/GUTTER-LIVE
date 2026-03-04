@@ -11,16 +11,14 @@ define('GUSER', 'service@rainreadyguttersolutions.com'); // GMail username
 define('GPWD', 'GutterMutter25!'); // GMail password
 
 $send_to = "danrollans100@gmail.com";
+$from_name = $_POST['firstname'] ?? '';
+$phone     = $_POST['phone'] ?? '';
+$from      = $_POST['email'] ?? '';
+$subject   = 'Gutter Service Request';
+$service   = $_POST['service'] ?? '';
+$body      = $_POST['message'] ?? '';
 
-
-$from_name = $_POST['firstname'];
-$phone = $_POST['phone']; 
-$from = $_POST['email'];
-$subject = 'Gutter Service Request';
-$service = $_POST['service'];
-$body = $_POST['message'];
-
-function smtpmailer($send_to, $from, $from_name, $subject, $body) { 
+function smtpmailer($send_to, $from, $from_name, $phone, $subject, $service, $body) { 
     global $error;
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
@@ -34,7 +32,7 @@ function smtpmailer($send_to, $from, $from_name, $subject, $body) {
     $mail->AddReplyTo($from, $from_name);
     $mail->SetFrom($from, $from);
     $mail->Subject = $subject;
-    $mail->Body = 'From:'. $from_name . '\n' . 'Email:' . $from . 'Phone Number:' . $phone . 'Service Requested:' . $service . '\n' . 'Message:' . $body;
+    $mail->Body = 'From:'. $from_name . "Phone Number:" . $phone . '\n' . 'Email:' . $from .'Service Requested:' . $service . '\n' . 'Message:' . $body;
     $mail->AddAddress($send_to);
     if(!$mail->Send()) {
         $error = 'Mail error: '.$mail->ErrorInfo; 
@@ -62,7 +60,7 @@ if (filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
         // $userName = json_encode($sanitizedFirstName);
         // $response = array('success',$userName);
         // echo json_encode($response);
-    smtpmailer($send_to,$from,$from_name,$subject,$body);
+    smtpmailer($send_to,$from,$from_name,$subject,$phone, $service,$body);
 } else {
     $response = array('error','Invalid email address. Please check for typos and resend');
     echo json_encode($response);
