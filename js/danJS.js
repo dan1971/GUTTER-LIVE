@@ -163,8 +163,11 @@ $("#contact-form-submit").on("click", (e)=>{
 	let cfPhone =  $('input[name="phone"]').val();
 	let cfEmail =  $('input[name="email"]').val();
 	let cfServicesChecked = serviceCheckboxesClicked;
-	let cfMessage = $('#message').val();
+	let cfMessage = $('#cfMessage').val();
 
+	if($.trim(cfMessage) === "" || undefined){
+		cfMessage="---"
+	};
 // CONTACT FORM ERROR CHECK START
 // SANITIZE FIRST NAME
 
@@ -178,7 +181,7 @@ $("#contact-form-submit").on("click", (e)=>{
 	    return output;
 	};
 	})(jQuery);
-	let scfName;
+	let sanitizedCfName;
 
 //SANITIZE FIRST NAME END
 
@@ -191,7 +194,7 @@ $("#contact-form-submit").on("click", (e)=>{
 		} else {
 			$('#cfName').prev().html("");
 			$('#cfName').css({'border-color':'#ffffff33','border-width':'1px'});
-			scfName = $.sanitize(cfName);
+			sanitizedCfName = $.sanitize(cfName);
 			errors[0] = 0;
 		}
 		if(cfEmail == ""){
@@ -208,27 +211,18 @@ $("#contact-form-submit").on("click", (e)=>{
 			errors[2] = 0;
 		}
 
-		if($.trim(cfMessage) === ""){
-			$('#message').prev().html("<span style='color: #FF7738;'>*Enter a Message</span>");
-			$('#message').css({'border-color':'red','border-width':'2px'});
-			errors[3] = 1;
-		} else {
-			$('#message').prev().html("");
-			$('#message').css({'border-color':'#ccc','border-width':'1px'});
-			errors[3] = 0;
-		}
-		
 		let findErrors = errors.includes(1);
 		
 // CONTACT FORM ERROR CHECK END
 
 		if(!findErrors){
+			
 			let h = $('.form-container-all').height();
 			$('.form-container-all').css('height',h);
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
 			setTimeout(()=>{
-				sendInfo(scfName,cfPhone,cfEmail,cfServicesChecked,cfMessage);
+				sendInfo(sanitizedCfName,cfPhone,cfEmail,cfServicesChecked,cfMessage);
 				$('#cfName')[0].value = "";  
 				$('#cfPhone')[0].value = ""; 
 				$('#cfEmail')[0].value = "";
@@ -239,6 +233,7 @@ $("#contact-form-submit").on("click", (e)=>{
 });
 
 	sendInfo = (Fn,Ph,e,s,m)=>{
+		let data= { firstname: Fn, phone: Ph, email: e, service: s, message: m}
 		$.ajax({
         type: 'POST',
         url: "contact_form_submit.php",
