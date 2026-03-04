@@ -13,14 +13,14 @@ define('GPWD', 'MutterGutter33!'); // GMail password
 $send_to = "danrollans100@gmail.com";
 
 
-$from_name = $_POST[firstname];
-$phone = $_POST[phone]; 
-$from = $_POST[email];
+$from_name = $_POST['firstname'];
+$phone = $_POST['phone']; 
+$from = $_POST['email'];
 $subject = 'Gutter Service Request';
-$service = $_POST[service];
-$body = $_POST[message];
+$service = $_POST['service'];
+$body = $_POST['message'];
 
-function smtpmailer($to, $from, $from_name, $subject, $body) { 
+function smtpmailer($send_to, $from, $from_name, $subject, $body) { 
     global $error;
     $mail = new PHPMailer();  // create a new object
     $mail->IsSMTP(); // enable SMTP
@@ -34,8 +34,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body) {
     $mail->AddReplyTo($from, $from_name);
     $mail->SetFrom($from, $from);
     $mail->Subject = $subject;
-    $mail->Body = 'From:'. $from_name . '\n' . 'Email: ' . $from  . 'Phone Number: ' . $phone . 'Service Requested: ' . $service . '\n' . 'Message: ' . $body;
-    $mail->AddAddress($to);
+    $mail->Body = 'From:'. $from_name . '\n' . 'Email:' . $from . 'Phone Number:' . $phone . 'Service Requested:' . $service . '\n' . 'Message:' . $body;
+    $mail->AddAddress($send_to);
     if(!$mail->Send()) {
         $error = 'Mail error: '.$mail->ErrorInfo; 
         $response = array('error','There was a problem sending your message.<br>Please reload the page and try again');
