@@ -1,0 +1,11 @@
+
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home2/sazxjwte/public_html/
+    - /bin/cp -R images $DEPLOYPATH
+    - /bin/cp -R css $DEPLOYPATH
+    - /bin/cp -R js $DEPLOYPATH
+    - /bin/cp -R PHPMailer $DEPLOYPATH
+    - /bin/cp  contact_form_submit.php $DEPLOYPATH
+    - /bin/cp  index.html $DEPLOYPATH
