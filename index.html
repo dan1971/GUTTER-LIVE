@@ -211,18 +211,18 @@
                 <!--FORM MESSSSAGE END-->
             <form id="contact-form" class="contact-form glass-card" action="" method="post" novalidate>
               <div class="form-row">
-                <div class="form-error-mssge">Enter your dumb name</div>
-                <input type="text" id="cf-name" name="name" placeholder="First Name" required>
+                <div class="form-error-mssge"></div>
+                <input type="text" id="cfName" name="name" placeholder="Your Name" required>
               </div>
 
               <div class="form-row">
-                <label for="cf-phone">Contact Number *<span class="form-error-mssge"></span></label>
-                <input type="tel" id="cf-phone" name="phone" required>
+                <div class="form-error-mssge"></div>
+                <input type="tel" id="cfPhone" name="phone" placeholder="Phone Number">
               </div>
 
               <div class="form-row">
-                <label for="cf-email">Email Address *<span class="form-error-mssge"></span></label>
-                <input type="email" id="cf-email" name="email" required>
+               <div class="form-error-mssge"></div>
+                <input type="email" id="cfEmail" name="email"  placeholder="Email" required>
               </div>
 
               <div class="form-row">
@@ -233,38 +233,12 @@
                   <label><input type="checkbox" name="service[]" value="inspectionS"> Inspection</label>
                 </div>
               </div>
-
-              <!-- <div class="form-row">
-                <label for="cf-stories">How many stories is your home?</label>
-                <select id="cf-stories" name="stories">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4+</option>
-                </select>
-              </div> -->
-
-              <!-- <div class="form-row">
-                <label for="cf-urgency">Urgency (1 - 10)</label>
-                <select id="cf-urgency" name="urgency">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
-              </div> -->
               <div class="form-row">
-                <label for="cf-message">Message</label>
-                <textarea id="cf-message" name="message" rows="4"></textarea>
+                <label for="cfMessage">Message</label>
+                <textarea id="cfMessage" name="message" rows="4"></textarea>
               </div>
               <div class="form-row footer-form-btn form-actions">
-                <button type="submit" class="btn btn-primary">Send Request</button>
+                <button id="contact-form-submit" class="btn btn-primary">Send Request</button>
               </div>
             </form>
           </div>

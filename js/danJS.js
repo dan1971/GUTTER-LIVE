@@ -149,180 +149,15 @@ canvas.height = parentHeight;
 		animate();
 // RAIN END 
 
-//--------------CONTACT CAPTCHA FORM SUBMISSION --------------
-
-	
-	sendFormAfterCaptchaValid = function(){
-	let Fname =  $('input[name="firstname"]').val();
-	let Lname =  $('input[name="lastname"]').val();
-	let email =  $('input[name="email"]').val();
-	let messge = $('#message').val();
-
-// CONTACT FORM ERROR CHECK START
-// SANITIZE FIRST NAME
-
-	(function($) {
-	$.sanitize = function(input) {
-		let output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
-		replace(/<[\/\!]*?[^<>]*?>/gi, '').
-		replace(/<style[^>]*?>.*?<\/style>/gi, '').
-		replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '').
-        replace(/&nbsp;/g, '');
-	    return output;
-	};
-	})(jQuery);
-	let sFname;
-
-//SANITIZE FIRST NAME END
-
-	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-	let errors = [0,0,0,0];
-		if(Fname == ""){
-			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#Fname').css({'border-color':'red','border-width':'2px'});
-			errors[0] = 1;
-		} else {
-			$('#Fname').prev().html("");
-			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
-			sFname = $.sanitize(Fname);
-			errors[0] = 0;
-		}
-		if(email == ""){
-			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
-			errors[2] = 1;
-		} else if(email != "" && isValidEmail == false) {
-			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
-			errors[2] = 1;
-		} else {
-			$('#email').prev().html("");
-			$('#email').css({'border-color':'#ccc','border-width':'1px'});
-			errors[2] = 0;
-		}
-
-		if($.trim(messge) === ""){
-			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
-			$('#message').css({'border-color':'red','border-width':'2px'});
-			errors[3] = 1;
-		} else {
-			$('#message').prev().html("");
-			$('#message').css({'border-color':'#ccc','border-width':'1px'});
-			errors[3] = 0;
-		}
-		
-		let findErrors = errors.includes(1);
-		
-// CONTACT FORM ERROR CHECK END
-
-		if(!findErrors){
-			let h = $('.form-container-all').height();
-			$('.form-container-all').css('height',h);
-			$('.form-submit-message-container-screen').css('display','grid');
-    		$('.form-submit-message-container').css('display','grid');
-			setTimeout(()=>{
-				sendInfo(sFname,Lname,email,messge);
-				$('#Fname')[0].value = "";  
-				$('#lastname')[0].value = ""; 
-				$('#email')[0].value = "";
-				$('#message')[0].value="";
-			}, 1000
-			);
-		}
-
-
-	sendInfo = (Fn,Ln,e,m)=>{
-		$.ajax({
-        type: 'POST',
-        url: "contact_form_submit.php",
-        data: { firstname: Fn, lastname: Ln, email: e, message: m }
- 		 }).done(function (n) {
-			let j = JSON.parse(n);
-			let result=j[0];
-			let msg=j[1];
- 		 	if(result=="error"){
- 		 		errorFunction(msg);
- 		 	} else {
- 		 		let userName = msg.replace(/"/g, '');
- 		 		 successFunction(userName);
-			}
-			 		 	
- 		 }).fail(function (jqXHR, textStatus, errorThrown) { errorFunction(errorThrown); 
-		});
-	};
-	
-	successFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
-
-		setTimeout(()=>{
-			$('.form-submit-message-container-screen').slideUp("fast");
-	    	$('.form-submit-message-container').css('display','none');
-	    		$('#btn-submit').removeClass("button-grey-enabled");
-					$('#btn-submit').prop("disabled",true);
-				}, 4000 );
-	
-	};
-
- 	errorFunction = (r)=>{
-		let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html(r);
-		
-	};
-	};
-
-    let contactForm = $("#contact-form");
-              contactForm.on("submit", function(e) {
-                e.preventDefault();
-                $.ajax({
-                  type: "POST",
-                  url: "contact_form_verify_captcha_004.php", //Our file 
-                  data: {         
-                    captcha: grecaptcha.getResponse()
-                  },
-                  success: function(response) {
-                   //Here add to front-end message
-                    cl("SUCCESS " + response)
-                    sendFormAfterCaptchaValid();
-                    grecaptcha.reset(); // Reset reCaptcha
-
-                  },
-                  error: function(jqXHR, textStatus, errorThrown) {
-				    // Handle error
-				    cl("AJAX Error:", textStatus, errorThrown);
-                    grecaptcha.reset(); // Reset reCaptcha
-                  }
-                })
-
-              });
-
-let enableFormSubmitBtn = function(){
-	$('#btn-submit').addClass("button-grey-enabled");
-	$('#btn-submit').prop("disabled",false);
-}
-
-
-
-//--------------CONTACT CAPTCHA SUBMISSION END --------------
-
-
-// holding pattern
-
-
-//
 
 //--------------CONTACT FORM SUBMISSION --------------
 
 $("#contact-form-submit").on("click", (e)=>{
 	e.preventDefault();
-	let Fname =  $('input[name="firstname"]').val();
-	let Lname =  $('input[name="lastname"]').val();
-	let email =  $('input[name="email"]').val();
-	let messge = $('#message').val();
+	let cfName =  $('input[name="name"]').val();
+	let cfPhone =  $('input[name="phone"]').val();
+	let cfEmail =  $('input[name="email"]').val();
+	let cfMessage = $('#message').val();
 
 // CONTACT FORM ERROR CHECK START
 // SANITIZE FIRST NAME
@@ -337,37 +172,37 @@ $("#contact-form-submit").on("click", (e)=>{
 	    return output;
 	};
 	})(jQuery);
-	let sFname;
+	let scfName;
 
 //SANITIZE FIRST NAME END
 
-	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+	let isValidcfEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(cfEmail);
 	let errors = [0,0,0,0];
-		if(Fname == ""){
-			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#Fname').css({'border-color':'red','border-width':'2px'});
+		if(cfName == ""){
+			$('#cfName').prev().html("<span style='color:red;'>*Enter Name</span>");
+			$('#cfName').css({'border-color':'red','border-width':'2px'});
 			errors[0] = 1;
 		} else {
-			$('#Fname').prev().html("");
-			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
-			sFname = $.sanitize(Fname);
+			$('#cfName').prev().html("");
+			$('#cfName').css({'border-color':'#ccc','border-width':'1px'});
+			scfName = $.sanitize(cfName);
 			errors[0] = 0;
 		}
-		if(email == ""){
-			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
+		if(cfEmail == ""){
+			$('#cfEmail').prev().html("<span style='color: red;'>*Enter cfEmail</span>");
+			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
-		} else if(email != "" && isValidEmail == false) {
-			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
+		} else if(cfEmail != "" && isValidcfEmail == false) {
+			$('#cfEmail').prev().html("<span style='color: red;'>*Enter a valid cfEmail</span>");
+			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
 		} else {
-			$('#email').prev().html("");
-			$('#email').css({'border-color':'#ccc','border-width':'1px'});
+			$('#cfEmail').prev().html("");
+			$('#cfEmail').css({'border-color':'#ccc','border-width':'1px'});
 			errors[2] = 0;
 		}
 
-		if($.trim(messge) === ""){
+		if($.trim(cfMessage) === ""){
 			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
 			$('#message').css({'border-color':'red','border-width':'2px'});
 			errors[3] = 1;
@@ -387,10 +222,10 @@ $("#contact-form-submit").on("click", (e)=>{
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
 			setTimeout(()=>{
-				sendInfo(sFname,Lname,email,messge);
-				$('#Fname')[0].value = "";  
-				$('#lastname')[0].value = ""; 
-				$('#email')[0].value = "";
+				sendInfo(scfName,cfPhone,cfEmail,cfMessage);
+				$('#cfName')[0].value = "";  
+				$('#phone')[0].value = ""; 
+				$('#cfEmail')[0].value = "";
 				$('#message')[0].value="";
 			}, 1000
 			);
@@ -401,7 +236,7 @@ $("#contact-form-submit").on("click", (e)=>{
 		$.ajax({
         type: 'POST',
         url: "contact_form_submit.php",
-        data: { firstname: Fn, lastname: Ln, email: e, message: m }
+        data: { firstname: Fn, phone: Ln, cfEmail: e, message: m }
  		 }).done(function (n) {
 			let j = JSON.parse(n);
 			let result=j[0];
