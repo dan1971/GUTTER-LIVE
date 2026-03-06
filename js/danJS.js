@@ -126,33 +126,37 @@ canvas.height = parentHeight;
 
 
 		animate();
-		
-// RAIN END 
-//--------------CONTACT CAPTCHA FORM SUBMISSION --------------
-// CONTACT FORM ERROR CHECK START
-// SANITIZE FIRST NAME
 
-	let Cname =  $('input[name="name"]').val();
-	let Cphone =  $('input[name="phone"]').val();
-	let Cemail =  $('input[name="email"]').val();
-	let Cmessge = $('#cfMessage').val();
-
-	(function($) {
-	$.sanitize = function(input) {
+      // RAIN END 
+      //--------------CONTACT CAPTCHA FORM SUBMISSION --------------
+        // CONTACT FORM ERROR CHECK START
+         // SANITIZE FIRST NAME
+     
+	   (function($) {
+	   $.sanitize = function(input) {
 		let output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
 		replace(/<[\/\!]*?[^<>]*?>/gi, '').
 		replace(/<style[^>]*?>.*?<\/style>/gi, '').
 		replace(/<![\s\S]*?--[ \t\n\r]*>/gi, '').
         replace(/&nbsp;/g, '');
 	    return output;
-	};
-	})(jQuery);
-	let sCname;
+	    };
+	 })(jQuery);
+	 let sCname;
 
-//SANITIZE FIRST NAME END
+     //SANITIZE FIRST NAME END
+      $("#contact-form-submit").on("click", (e)=>{
+		e.preventDefault();
+	   let Cname =  $('input[name="name"]').val();
+	   let Cphone =  $('input[name="phone"]').val();
+	   let Cemail =  $('input[name="email"]').val();
+	   let Cmessge = $('#cfMessage').val();
 
-	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Cemail);
-	let errors = [0,0,0,0];
+       let formData = $(this).serialize();
+	   console.log("serialized form values= " + formData);
+
+	   let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Cemail);
+	  let errors = [0,0,0,0];
 		if(Cname == ""){
 			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
 			$('#Fname').css({'border-color':'red','border-width':'2px'});
@@ -189,41 +193,39 @@ canvas.height = parentHeight;
 		
 		let findErrors = errors.includes(1);
 		
-   // CONTACT FORM ERROR CHECK END
+      // CONTACT FORM ERROR CHECK END
 
 		if(!findErrors){
 			let h = $('.form-container-all').height();
 			$('.form-container-all').css('height',h);
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
-			setTimeout(()=>{
-				sendInfo(Cname,Cphone,Cemail,Cmessge);
-				$('#Fname')[0].value = "";  
-				$('#lastname')[0].value = ""; 
-				$('#email')[0].value = "";
-				$('#message')[0].value="";
-			}, 1000
-			);
-		}
- let formProcessedInputs = [sCname,Cphone,Cemail,Cmessge];
- console.log("formProcessedInputs= " + formProcessedInputs);
 
-  let formData = $(this).serialize();
-  console.log("formData= "+ formData)
+			let formProcessedInputs = [sCname,Cphone,Cemail,Cmessge];
+            console.log("formProcessedInputs= " + formProcessedInputs);	
 
-	sendInfo = (formData)=>{
-		$.ajax({
+			// setTimeout(()=>{
+			// sendInfo(Cname,Cphone,Cemail,Cmessge);
+			// 	$('#Fname')[0].value = "";  
+			// 	$('#lastname')[0].value = ""; 
+			// 	$('#email')[0].value = "";
+			// 	$('#message')[0].value="";
+			// }, 1000);
+		};
+	  });
+
+  sendInfo = (formData)=>{
+	  $.ajax({
         type: 'POST',
         url: "contact_form_submit_sql.php",
 		data: formData,
 		success: function(response) {
         // Display the response from the PHP script
-            $('#responseMessage').html(response);
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
+          $('#responseMessage').html(response);
+         },
+             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
-            }
-        });
-	}
+                 }
+        });}
 
 });
