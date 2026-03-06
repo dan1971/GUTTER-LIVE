@@ -217,7 +217,7 @@ canvas.height = parentHeight;
           let h = $('.form-container-all').height();
 		$('.form-container-all').css('height',h);
 		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
+		$('#send-status-message').html("Message Sent!<br> Thank you " + Cname);
 
 		setTimeout(()=>{
 			$('.form-submit-message-container-screen').slideUp("fast");
