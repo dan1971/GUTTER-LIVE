@@ -159,7 +159,7 @@ canvas.height = parentHeight;
 
 //SANITIZE FIRST NAME END
 
-	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Cemail);
 	let errors = [0,0,0,0];
 		if(Cname == ""){
 			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
