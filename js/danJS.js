@@ -219,7 +219,7 @@ canvas.height = parentHeight;
 		$.ajax({
         type: 'POST',
         url: "contact_form_submit_sql.php",
-		data= formData,
+		data: formData,
 		success: function(response) {
         // Display the response from the PHP script
             $('#responseMessage').html(response);
