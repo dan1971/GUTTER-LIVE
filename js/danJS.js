@@ -140,10 +140,10 @@ canvas.height = parentHeight;
 // CONTACT FORM ERROR CHECK START
 // SANITIZE FIRST NAME
 
-	let Fname =  $('input[name="firstname"]').val();
-	let Lname =  $('input[name="lastname"]').val();
-	let email =  $('input[name="email"]').val();
-	let messge = $('#message').val();
+	let Cname =  $('input[name="name"]').val();
+	let Cphone =  $('input[name="phone"]').val();
+	let Cemail =  $('input[name="email"]').val();
+	let Cmessge = $('input["message"]').val();
 
 	(function($) {
 	$.sanitize = function(input) {
@@ -155,27 +155,27 @@ canvas.height = parentHeight;
 	    return output;
 	};
 	})(jQuery);
-	let sFname;
+	let sCname;
 
 //SANITIZE FIRST NAME END
 
 	let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
 	let errors = [0,0,0,0];
-		if(Fname == ""){
+		if(Cname == ""){
 			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
 			$('#Fname').css({'border-color':'red','border-width':'2px'});
 			errors[0] = 1;
 		} else {
 			$('#Fname').prev().html("");
 			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
-			sFname = $.sanitize(Fname);
+			sCname = $.sanitize(Cname);
 			errors[0] = 0;
-		}
-		if(email == ""){
+		} 
+		if(Cemail == ""){
 			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
 			$('#email').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
-		} else if(email != "" && isValidEmail == false) {
+		} else if(Cemail != "" && isValidEmail == false) {
 			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
 			$('#email').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
@@ -185,7 +185,7 @@ canvas.height = parentHeight;
 			errors[2] = 0;
 		}
 
-		if($.trim(messge) === ""){
+		if($.trim(Cmessge) === ""){
 			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
 			$('#message').css({'border-color':'red','border-width':'2px'});
 			errors[3] = 1;
@@ -205,7 +205,7 @@ canvas.height = parentHeight;
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
 			setTimeout(()=>{
-				sendInfo(sFname,Lname,email,messge);
+				sendInfo(Cname,Cphone,Cemail,Cmessge);
 				$('#Fname')[0].value = "";  
 				$('#lastname')[0].value = ""; 
 				$('#email')[0].value = "";
@@ -213,8 +213,7 @@ canvas.height = parentHeight;
 			}, 1000
 			);
 		}
- let formProcessedInputs = [sFname,Lname,email,messge];
-
+ let formProcessedInputs = [sCname,Cphone,Cemail,Cmessge];
  console.log("formProcessedInputs= " + formProcessedInputs);
 
   let formData = $(this).serialize();
