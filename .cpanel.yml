@@ -2,7 +2,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/sazxjwte/public_html/website_e561caa2/index.html
+    - export DEPLOYPATH=/home2/sazxjwte/repositories/GUTTER-LIVE
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
