@@ -214,9 +214,22 @@ canvas.height = parentHeight;
 		data: formData,
 		success: function(response) {
         // Display the response from the PHP script
-          $('#responseMessage').html(response);
+          let h = $('.form-container-all').height();
+		$('.form-container-all').css('height',h);
+		$('.loader').css('display','none');
+		$('#send-status-message').html("Message Sent!<br> Thank you " + r);
+
+		setTimeout(()=>{
+			$('.form-submit-message-container-screen').slideUp("fast");
+	    	$('.form-submit-message-container').css('display','none');
+
+				}, 4000 );
          },
              error: function(jqXHR, textStatus, errorThrown) {
+				let h = $('.form-container-all').height();
+		     $('.form-container-all').css('height',h);
+		     $('.loader').css('display','none');
+		      $('#send-status-message').html(errorThrown);
                 console.log("Request failed: " + textStatus, errorThrown);
                  }
         });}
