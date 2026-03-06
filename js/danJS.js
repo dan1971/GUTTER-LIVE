@@ -202,7 +202,8 @@ canvas.height = parentHeight;
     		$('.form-submit-message-container').css('display','grid');
 
 			let formProcessedInputs = [sCname,Cphone,Cemail,Cmessge];
-            console.log("formProcessedInputs= " + formProcessedInputs.serialize(););	
+let serializedformProcessedInputs=formProcessedInputs.serialize();
+            console.log("formProcessedInputs= " + serializedformProcessedInput);	
 
 			// setTimeout(()=>{
 			// sendInfo(Cname,Cphone,Cemail,Cmessge);
