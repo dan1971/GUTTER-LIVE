@@ -149,10 +149,10 @@ canvas.height = parentHeight;
 	  //ON CLICKKKKKKKKKKK
       $("#contact-form-submit").on("click", (e)=>{
 		e.preventDefault();
-	//    let Cname;
-	//    let Cphone =  $('input[name="phone"]').val();
-	//    let Cemail =  $('input[name="email"]').val();
-	//    let Cmessge = $('#cfMessage').val();
+	   let Cname$ = $('input[name="name"]').val();;
+	   let Cphone =  $('input[name="phone"]').val();
+	   let Cemail =  $('input[name="email"]').val();
+	   let Cmessge = $('#cfMessage').val();
 
        let formData = $('#contact-form').serialize();
 	   console.log("serialized form values= " + formData);
@@ -193,13 +193,6 @@ canvas.height = parentHeight;
 			$('.form-container-all').css('height',h);
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
-
-// $from_name = $_POST['firstname'] ?? '';
-// $phone     = $_POST['phone'] ?? '';
-// $from      = $_POST['email'] ?? '';
-// $subject   = 'Gutter Service Request';
-// $service   = $_POST['service'] ?? '';
-// $body      = $_POST['message'] ?? '';
 
 	   let formData = $('#contact-form').serialize();
 		console.log(JSON.stringify(formData)); 
