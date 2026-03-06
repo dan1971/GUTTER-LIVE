@@ -145,17 +145,20 @@ canvas.height = parentHeight;
 	 let sCname;
 
      //SANITIZE FIRST NAME END
+
+	  //ON CLICKKKKKKKKKKK
       $("#contact-form-submit").on("click", (e)=>{
 		e.preventDefault();
-	   let Cname =  $('input[name="name"]').val();
-	   let Cphone =  $('input[name="phone"]').val();
-	   let Cemail =  $('input[name="email"]').val();
-	   let Cmessge = $('#cfMessage').val();
+	//    let Cname;
+	//    let Cphone =  $('input[name="phone"]').val();
+	//    let Cemail =  $('input[name="email"]').val();
+	//    let Cmessge = $('#cfMessage').val();
 
-       let formData = $(this).serialize();
+       let formData = $('#contact-form').serialize();
 	   console.log("serialized form values= " + formData);
 
 	   let isValidEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(Cemail);
+
 	  let errors = [0,0,0,0];
 		if(Cname == ""){
 			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
@@ -181,16 +184,6 @@ canvas.height = parentHeight;
 			errors[2] = 0;
 		}
 
-		if($.trim(Cmessge) === ""){
-			$('#message').prev().html("<span style='color:red;'>*Enter a Message</span>");
-			$('#message').css({'border-color':'red','border-width':'2px'});
-			errors[3] = 1;
-		} else {
-			$('#message').prev().html("");
-			$('#message').css({'border-color':'#ccc','border-width':'1px'});
-			errors[3] = 0;
-		}
-		
 		let findErrors = errors.includes(1);
 		
       // CONTACT FORM ERROR CHECK END
@@ -201,9 +194,15 @@ canvas.height = parentHeight;
 			$('.form-submit-message-container-screen').css('display','grid');
     		$('.form-submit-message-container').css('display','grid');
 
-			let formProcessedInputs = [sCname,Cphone,Cemail,Cmessge];
-let serializedformProcessedInputs=formProcessedInputs.serialize();
-            console.log("formProcessedInputs= " + serializedformProcessedInput);	
+// $from_name = $_POST['firstname'] ?? '';
+// $phone     = $_POST['phone'] ?? '';
+// $from      = $_POST['email'] ?? '';
+// $subject   = 'Gutter Service Request';
+// $service   = $_POST['service'] ?? '';
+// $body      = $_POST['message'] ?? '';
+
+	   let formData = $('#contact-form').serialize();
+		console.log(JSON.stringify(formData)); 
 
 			// setTimeout(()=>{
 			// sendInfo(Cname,Cphone,Cemail,Cmessge);

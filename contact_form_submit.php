@@ -1,69 +1,46 @@
 <?php 
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+// 1. Database Configuration
+$host     = 'localhost:3306';
+$db       = 'sazxjwte_GutterWebsiteRequestForm'; // Replace with your actual database name
+$user     = 'cpses_sagyz1w6bu@localhost';
+$pass     = 'guttermutter98!';
+$charset  = 'utf8mb4';
 
-require './PHPMailer/src/Exception.php';
-require './PHPMailer/src/PHPMailer.php';
-require './PHPMailer/src/SMTP.php';
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
-define('GUSER', 'service@rainreadyguttersolutions.com'); // GMail username
-define('GPWD', 'GutterMutter25!'); // GMail password
+try {
+    // 2. Connect to Database
+    $pdo = new PDO($dsn, $user, $pass, $options);
 
-$send_to = "danrollans100@gmail.com";
-$from_name = $_POST['firstname'] ?? '';
-$phone     = $_POST['phone'] ?? '';
-$from      = $_POST['email'] ?? '';
-$subject   = 'Gutter Service Request';
-$service   = $_POST['service'] ?? '';
-$body      = $_POST['message'] ?? '';
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        // 3. Collect and Sanitize Input
+        $name    = htmlspecialchars($_POST['name']);
+        $email   = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+        $phone   = htmlspecialchars($_POST['phone']);
+        $message = htmlspecialchars($_POST['message']);
+        
+        // 4. Handle the Checkbox Array
+        // Converts ['Service A', 'Service B'] into "Service A, Service B"
+        $services = isset($_POST['service']) ? implode(", ", $_POST['service']) : "None selected";
 
-function smtpmailer($send_to, $from, $from_name, $phone, $subject, $service, $body) { 
-    global $error;
-    $mail = new PHPMailer();  // create a new object
-    $mail->IsSMTP(); // enable SMTP
-    $mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
-    $mail->SMTPAuth = true;  // authentication enabled
-    $mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
-    $mail->Host = 'mail.rainreadyguttersolutions.com';
-    $mail->Port = 465; 
-    $mail->Username = GUSER;  
-    $mail->Password = GPWD;           
-    $mail->AddReplyTo($from, $from_name);
-    $mail->SetFrom($from, $from);
-    $mail->Subject = $subject;
-    $mail->Body = 'From:'. $from_name . "Phone Number:" . $phone . '\n' . 'Email:' . $from .'Service Requested:' . $service . '\n' . 'Message:' . $body;
-    $mail->AddAddress($send_to);
-    if(!$mail->Send()) {
-        $error = 'Mail error: '.$mail->ErrorInfo; 
-        $response = array('error','There was a problem sending your message.<br>Please reload the page and try again');
-        echo json_encode($response);
-        return false;
-    } else {
-        $error = 'Message sent!';
-        $userName = json_encode($from_name);
-        $response = array('success',$userName);
-        echo json_encode($response); //sending response to ajax
-        return true;
+        // 5. Prepared Statement (Security First!)
+        $sql = "INSERT INTO CustomerInquiries (FullName, Email, Phone, ServiceRequested, CustomerMessage) 
+                VALUES (?, ?, ?, ?, ?)";
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute([$name, $email, $phone, $services, $message]);
+
+        echo "Thank you! Your inquiry has been submitted.";
     }
+} catch (\PDOException $e) {
+    // In production, log this error instead of echoing it
+    die("Database connection failed: " . $e->getMessage());
 }
-
-// Sanitize and print comment string
-$sanitizedFirstName = htmlspecialchars($from_name, ENT_QUOTES, 'UTF-8');
-//echo $sanitizedFirstName;
-
-// Sanitize Email
-$sanitizedEmail = filter_var($from, FILTER_SANITIZE_EMAIL);
-
-// Validate Email and send or 
-if (filter_var($sanitizedEmail, FILTER_VALIDATE_EMAIL)) {
-        // $userName = json_encode($sanitizedFirstName);
-        // $response = array('success',$userName);
-        // echo json_encode($response);
-    smtpmailer($send_to,$from,$from_name,$subject,$phone, $service,$body);
-} else {
-    $response = array('error','Invalid email address. Please check for typos and resend');
-    echo json_encode($response);
-}
-
 ?>
