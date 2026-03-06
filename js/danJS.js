@@ -143,7 +143,7 @@ canvas.height = parentHeight;
 	let Cname =  $('input[name="name"]').val();
 	let Cphone =  $('input[name="phone"]').val();
 	let Cemail =  $('input[name="email"]').val();
-	let Cmessge = $('input["message"]').val();
+	let Cmessge = $('#cfMessage').val();
 
 	(function($) {
 	$.sanitize = function(input) {
