@@ -214,10 +214,12 @@ canvas.height = parentHeight;
 		data: formData,
 		success: function(response) {
         // Display the response from the PHP script
+       const nameValue = formData.get('name');
+        console.log(nameValue);
           let h = $('.form-container-all').height();
 		$('.form-container-all').css('height',h);
 		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you " + Cname);
+		$('#send-status-message').html("Message Sent!<br> Thank you " + nameValue);
 
 		setTimeout(()=>{
 			$('.form-submit-message-container-screen').slideUp("fast");
