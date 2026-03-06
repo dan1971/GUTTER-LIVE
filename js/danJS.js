@@ -197,20 +197,20 @@ canvas.height = parentHeight;
 	   let formData = $('#contact-form').serialize();
 		console.log(JSON.stringify(formData)); 
 
-			// setTimeout(()=>{
-			// sendInfo(Cname,Cphone,Cemail,Cmessge);
-			// 	$('#Fname')[0].value = "";  
-			// 	$('#lastname')[0].value = ""; 
-			// 	$('#email')[0].value = "";
-			// 	$('#message')[0].value="";
-			// }, 1000);
+			setTimeout(()=>{
+			sendInfo(formData);
+				$('#Fname')[0].value = "";  
+				$('#lastname')[0].value = ""; 
+				$('#email')[0].value = "";
+				$('#message')[0].value="";
+			}, 1000);
 		};
 	  });
 
   sendInfo = (formData)=>{
 	  $.ajax({
         type: 'POST',
-        url: "contact_form_submit_sql.php",
+        url: "contact_form_submit.php",
 		data: formData,
 		success: function(response) {
         // Display the response from the PHP script
