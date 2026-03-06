@@ -199,10 +199,10 @@ canvas.height = parentHeight;
 
 			setTimeout(()=>{
 			sendInfo(formData);
-				$('#Fname')[0].value = "";  
-				$('#lastname')[0].value = ""; 
-				$('#email')[0].value = "";
-				$('#message')[0].value="";
+				$('#cfName')[0].value = "";  
+				$('#cfPhone')[0].value = ""; 
+				$('#cfEmail')[0].value = "";
+				$('#cfMessage')[0].value="";
 			}, 1000);
 		};
 	  });
