@@ -197,13 +197,13 @@ canvas.height = parentHeight;
 	   let formData = $('#contact-form').serialize();
 		console.log(JSON.stringify(formData)); 
 
-			setTimeout(()=>{
+			
 			sendInfo(formData);
 				$('#cfName')[0].value = "";  
 				$('#cfPhone')[0].value = ""; 
 				$('#cfEmail')[0].value = "";
 				$('#cfMessage')[0].value="";
-			}, 1000);
+			
 		};
 	  });
 
@@ -218,14 +218,8 @@ canvas.height = parentHeight;
 		$('.form-container-all').css('height',h);
 		$('.loader').css('display','none');
 		$('#send-status-message').html("Message Sent!<br> Thank you! We will be in touch within 24hrs.");
-
-		setTimeout(()=>{
-			$('.form-submit-message-container-screen').slideUp("fast");
-	    	$('.form-submit-message-container').css('display','none');
-
-				}, 4000 );
          },
-             error: function(jqXHR, textStatus, errorThrown) {
+       error: function(jqXHR, textStatus, errorThrown) {
 				let h = $('.form-container-all').height();
 		     $('.form-container-all').css('height',h);
 		     $('.loader').css('display','none');
