@@ -140,6 +140,11 @@ canvas.height = parentHeight;
 // CONTACT FORM ERROR CHECK START
 // SANITIZE FIRST NAME
 
+	let Fname =  $('input[name="firstname"]').val();
+	let Lname =  $('input[name="lastname"]').val();
+	let email =  $('input[name="email"]').val();
+	let messge = $('#message').val();
+
 	(function($) {
 	$.sanitize = function(input) {
 		let output = input.replace(/<script[^>]*?>.*?<\/script>/gi, '').
