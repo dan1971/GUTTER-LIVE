@@ -149,7 +149,7 @@ canvas.height = parentHeight;
 	  //ON CLICKKKKKKKKKKK
       $("#contact-form-submit").on("click", (e)=>{
 		e.preventDefault();
-	   let Cname$ = $('input[name="name"]').val();;
+	   let Cname = $('input[name="name"]').val();;
 	   let Cphone =  $('input[name="phone"]').val();
 	   let Cemail =  $('input[name="email"]').val();
 	   let Cmessge = $('#cfMessage').val();
