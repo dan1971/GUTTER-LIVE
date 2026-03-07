@@ -4,7 +4,7 @@
 $host     = 'localhost';
 $db       = 'sazxjwte_CustomerInquiries'; // Replace with your actual database name
 $user     = 'sazxjwte_gutterMan';
-$pass     = 'guttermutter98!';
+$pass     = 'BingoBangoBongo987!';
 $charset  = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
