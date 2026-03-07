@@ -212,9 +212,10 @@ canvas.height = parentHeight;
         type: 'POST',
         url: "contact_form_submit.php",
 		data: formData,
-		success: function(response) {
+		success: function(data) {
         // Display the response from the PHP script
-          let h = $('.form-container-all').height();
+		console.log(data)
+        let h = $('.form-container-all').height();
 		$('.form-container-all').css('height',h);
 		$('.loader').css('display','none');
 		$('#send-status-message').html("Message Sent!<br> Thank you! We will be in touch within 24hrs.");
