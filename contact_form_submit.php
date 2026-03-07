@@ -1,7 +1,7 @@
 <?php 
 
 // 1. Database Configuration
-$host     = 'localhost:3306';
+$host     = 'localhost';
 $db       = 'sazxjwte_GutterWebsiteRequestForm'; // Replace with your actual database name
 $user     = 'cpses_sagyz1w6bu@localhost';
 $pass     = 'guttermutter98!';
