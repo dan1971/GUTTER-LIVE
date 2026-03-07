@@ -2,7 +2,7 @@
 
 // 1. Database Configuration
 $host     = 'localhost';
-$db       = 'sazxjwte_GutterWebsiteRequestForm'; // Replace with your actual database name
+$db       = 'sazxjwte_CustomerInquiries'; // Replace with your actual database name
 $user     = 'sazxjwte_gutterMan';
 $pass     = 'guttermutter98!';
 $charset  = 'utf8mb4';
