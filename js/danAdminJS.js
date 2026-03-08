@@ -38,9 +38,7 @@ $(document).ready(function(){
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
-                
                 console.log("data " + data);
-        Loop through the data and display it
                 $.each(data[0], function(index, row) {
                     console.log(row.column_name);
                 });
