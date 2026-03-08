@@ -1,4 +1,6 @@
 <?php 
+header('Content-Type: application/json; charset=utf-8;');
+
 // 1. Database Configuration
 $host     = 'localhost';
 $db       = 'sazxjwte_CustomerInquiries'; // Replace with your actual database name
@@ -26,7 +28,11 @@ try {
     if (count($results) > 0) {
         echo json_encode($results);
     } else {
-        echo "0 results";
+        echo json_encode([
+            "status" => "error",
+            "message" => "0 Results",
+            "data" => []
+        ]);
     }
 } catch(PDOException $e) {
     

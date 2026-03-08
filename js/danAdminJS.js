@@ -37,14 +37,22 @@ $(document).ready(function(){
         url: "db-display-data.php",
             type: "GET",
             dataType: "json", // Expect JSON data
-            success: function(data) {
-                // Process the JSON data and display it
+            success: function(response) {
+                if (response.message === "0 Results") {
+                    $('#response-container').html(response.message);
+                } else {
+            // Process actual data
+                    console.log(response.data);
+                }
+
+                /*Process the JSON data and display it
                 let htmlOutput = "<div class='response-field-cell'>";
                 $.each(data, function(i, item) {
                     htmlOutput + item.id + "</div>" + htmlOutput + item.FullName + "</div>" + htmlOutput + item.Email + "</div>" + htmlOutput + "</div>" + htmlOutput + item.Phone + "</div>" + htmlOutput + item.ServiceRequested + "</div>" + htmlOutput + item.CustomerMessage + "</div>";
                 });
                 htmlOutput += "</div>";
                 $("#response-container").html(htmlOutput);
+                */
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
