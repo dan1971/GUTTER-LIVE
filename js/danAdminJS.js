@@ -40,10 +40,10 @@ $(document).ready(function(){
             success: function(data) {
                 
                 console.log("data " + data);
-        //Loop through the data and display it
-                // $.each(data[0], function(index, row) {
-                //     console.log(row.column_name);
-                // });
+        Loop through the data and display it
+                $.each(data[0], function(index, row) {
+                    console.log(row.column_name);
+                });
 
                 /*Process the JSON data and display it
                 let htmlOutput = "<div class='response-field-cell'>";
