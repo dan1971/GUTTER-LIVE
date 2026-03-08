@@ -39,7 +39,7 @@ $(document).ready(function(){
             dataType: "json", // Expect JSON data
             success: function(data) {
         //Loop through the data and display it
-                $.each(data, function(index, row) {
+                $.each(data[0], function(index, row) {
                     console.log(row.column_name);
                 });
 
