@@ -1,3 +1,30 @@
+
+
+
+/* Admin Page Styles */
+
+.admin-form-btn {
+  display: grid; 
+  justify-content:center;
+}
+
+.admin-inner-left {
+  display: grid;
+  margin: 0 auto;
+  width:100%;
+  justify-content: right;
+}
+
+.admin-header {
+
+    & h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+}
+
+/* Admin END  */
+
 .form-container-all {
   position: relative;
   box-sizing: border-box;
