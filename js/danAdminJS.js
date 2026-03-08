@@ -38,12 +38,10 @@ $(document).ready(function(){
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(response) {
-                if (response.message === "0 Results") {
-                    $('#response-container').html(response.message);
-                } else {
-            // Process actual data
-                    console.log(response.data);
-                }
+        //Loop through the data and display it
+                $.each(data, function(index, row) {
+                    console.log(row.column_name);
+                });
 
                 /*Process the JSON data and display it
                 let htmlOutput = "<div class='response-field-cell'>";
