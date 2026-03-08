@@ -13,18 +13,14 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $sql = "SELECT id, first_name, last_name FROM users";
+    $sql = "SELECT `InquiryID`,`FullName`,`Email`,`Phone`,`ServiceRequested`,`CustomerMessage`,`SubmissionDate` FROM `CustomerInquiries` WHERE 1;";
     $stmt = $conn->query($sql);
 
     // Fetch all results into an array
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($results) > 0) {
-        echo "<ul>";
-        foreach ($results as $row) {
-            echo "<li>ID: " . $row["id"]. " - Name: " . $row["first_name"]. " " . $row["last_name"]. "</li>";
-        }
-        echo "</ul>";
+        echo json_encode($response);
     } else {
         echo "0 results";
     }
