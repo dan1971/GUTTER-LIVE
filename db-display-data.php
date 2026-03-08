@@ -9,7 +9,6 @@ $pass     = 'Copper&Tin45!';
 $charset  = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
-
 $options = [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -19,7 +18,7 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
-    $sql = "SELECT `InquiryID`,`FullName`,`Email`,`Phone`,`ServiceRequested`,`CustomerMessage`,`SubmissionDate` FROM `CustomerInquiries` WHERE 1;";
+    $sql = "SELECT * FROM `CustomerInquiries` WHERE 1";
     $stmt = $pdo->prepare($sql);
 
     // Fetch all results into an array
