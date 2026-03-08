@@ -48,7 +48,7 @@ $(document).ready(function(){
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
-                 };
+                 
             }
         });}
 
