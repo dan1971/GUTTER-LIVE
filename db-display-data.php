@@ -6,31 +6,37 @@ $user     = 'sazxjwte_rainman';
 $pass     = 'Copper&Tin45!';
 $charset  = 'utf8mb4';
 
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+    PDO::ATTR_EMULATE_PREPARES   => false,
+];
 
 try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO($dsn, $user, $pass, $options);
 
     $sql = "SELECT `InquiryID`,`FullName`,`Email`,`Phone`,`ServiceRequested`,`CustomerMessage`,`SubmissionDate` FROM `CustomerInquiries` WHERE 1;";
-    $stmt = $conn->query($sql);
+    $stmt = $pdo->prepare($sql);
 
     // Fetch all results into an array
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (count($results) > 0) {
-        echo json_encode($response);
+        echo json_encode($results);
     } else {
         echo "0 results";
     }
 } catch(PDOException $e) {
-        header('Content-Type: application/json');
+    
+    header('Content-Type: application/json');
     
     // Set appropriate HTTP status code (e.g., 500 Internal Server Error)
     http_response_code(500);
 
     // Format error details
-    $response = [
+    $results = [
         'status' => 'error',
         'code' => $e->getCode(),
         'message' => 'Database error occurred',
@@ -38,7 +44,7 @@ try {
         'debug' => $e->getMessage() 
     ];
 
-    echo json_encode($response);
+    echo json_encode($results);
 }
 $conn = null; // Close connection
     
