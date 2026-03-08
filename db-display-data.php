@@ -19,20 +19,12 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
     $sql = "SELECT * FROM `CustomerInquiries` WHERE 1";
-    $stmt = $pdo->prepare($sql);
+    $stmt = $pdo->query($sql);
 
     // Fetch all results into an array
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($results);
 
-    if (count($results) > 0) {
-        echo json_encode($results);
-    } else {
-        echo json_encode([
-            "status" => "error",
-            "message" => "0 Results",
-            "data" => []
-        ]);
-    }
 } catch(PDOException $e) {
     
     header('Content-Type: application/json');
@@ -41,7 +33,7 @@ try {
     http_response_code(500);
 
     // Format error details
-    $results = [
+    $errorMsg = [
         'status' => 'error',
         'code' => $e->getCode(),
         'message' => 'Database error occurred',
@@ -49,7 +41,7 @@ try {
         'debug' => $e->getMessage() 
     ];
 
-    echo json_encode($results);
+    echo json_encode($errorMsg);
 }
 $conn = null; // Close connection
     
