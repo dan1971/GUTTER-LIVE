@@ -37,7 +37,7 @@ $(document).ready(function(){
         url: "db-display-data.php",
             type: "GET",
             dataType: "json", // Expect JSON data
-            success: function(response) {
+            success: function(data) {
         //Loop through the data and display it
                 $.each(data, function(index, row) {
                     console.log(row.column_name);
