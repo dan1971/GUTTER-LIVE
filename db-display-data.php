@@ -1,5 +1,4 @@
 <?php 
-header('Content-Type: application/json');
 // 1. Database Configuration
 $host     = 'localhost';
 $db       = 'sazxjwte_CustomerInquiries'; // Replace with your actual database name
@@ -25,7 +24,21 @@ try {
         echo "0 results";
     }
 } catch(PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
+        header('Content-Type: application/json');
+    
+    // Set appropriate HTTP status code (e.g., 500 Internal Server Error)
+    http_response_code(500);
+
+    // Format error details
+    $response = [
+        'status' => 'error',
+        'code' => $e->getCode(),
+        'message' => 'Database error occurred',
+        // In production, avoid showing raw $e->getMessage() for security
+        'debug' => $e->getMessage() 
+    ];
+
+    echo json_encode($response);
 }
 $conn = null; // Close connection
     
