@@ -19,12 +19,13 @@ try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
     $sql = "SELECT * FROM `CustomerInquiries` WHERE 1";
-    $stmt = $pdo->query($sql);
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
 
     // Fetch all results into an array
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    echo json_encode($results);
-
+    $json_response = json_encode($results, JSON_PRETTY_PRINT);
+    echo $json_response;
 } catch(PDOException $e) {
     
     header('Content-Type: application/json');
