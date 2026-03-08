@@ -34,7 +34,7 @@ $(document).ready(function(){
 
       getCustomerData = (formData)=>{
 	   $.ajax({
-        url: "fetch_data.php",
+        url: "db-display-data.php",
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
@@ -46,8 +46,9 @@ $(document).ready(function(){
                 htmlOutput += "</div>";
                 $("#response-container").html(htmlOutput);
             },
-            error: function(xhr, status, error) {
-                console.error("Error fetching data: " + error);
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log("Request failed: " + textStatus, errorThrown);
+                 };
             }
         });}
 
