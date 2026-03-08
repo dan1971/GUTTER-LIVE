@@ -38,8 +38,8 @@ $(document).ready(function(){
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
-                let dbReturn = JSON.parse(data);
-                console.log("data " + dbReturn);
+                
+                console.log("data " + data);
         //Loop through the data and display it
                 // $.each(data[0], function(index, row) {
                 //     console.log(row.column_name);
