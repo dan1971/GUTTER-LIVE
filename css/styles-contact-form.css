@@ -36,6 +36,25 @@
   margin: 0 0 3px 6px;
 }
 
+#response-container {
+  border: 1px solid;
+  max-width: 1200px;
+  Width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.response-field-cell {
+padding: .5rem .7rem .5rem;
+width:fit-content;
+background-color: #ccc;
+color: #252525;
+font-size: .8rem;
+}
+
 .loading-text-spinner-container {
   position:absolute;
   background: #0a1c26db;
