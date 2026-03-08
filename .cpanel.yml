@@ -6,6 +6,8 @@ deployment:
     - /bin/cp -R images $DEPLOYPATH
     - /bin/cp -R css $DEPLOYPATH
     - /bin/cp -R js $DEPLOYPATH
-    - /bin/cp -R PHPMailer $DEPLOYPATH
     - /bin/cp  contact_form_submit.php $DEPLOYPATH
+    - /bin/cp  db-display-data.php $DEPLOYPATH
+    - /bin/cp  indexAdmin.html $DEPLOYPATH
     - /bin/cp  index.html $DEPLOYPATH
+    - /bin/cp  favicon.ico $DEPLOYPATH
