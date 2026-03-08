@@ -1,5 +1,5 @@
 <?php 
-
+header('Content-Type: application/json');
 // 1. Database Configuration
 $host     = 'localhost';
 $db       = 'sazxjwte_CustomerInquiries'; // Replace with your actual database name
