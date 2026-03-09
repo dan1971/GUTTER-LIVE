@@ -50,7 +50,7 @@ $(document).ready(function(){
                 let htmlOutput = "<div class='response-field-cell'>";
                  $.each(data, function(index, row) {
                     
-                    buildResponseGrid = htmlOutput + row.FullName + "</div>" + htmlOutput + row.Email + "</div>" + htmlOutput + row.Phone + "</div>" + htmlOutput + row.ServiceRequested + "</div>" + htmlOutput + row.CustomerMessage + "</div>";
+                    buildResponseGrid += htmlOutput + row.FullName + "</div>" + htmlOutput + row.Email + "</div>" + htmlOutput + row.Phone + "</div>" + htmlOutput + row.ServiceRequested + "</div>" + htmlOutput + row.CustomerMessage + "</div>";
                     
                 });
                 console.log("b" + buildResponseGrid);
