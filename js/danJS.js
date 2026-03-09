@@ -161,26 +161,26 @@ canvas.height = parentHeight;
 
 	  let errors = [0,0,0,0];
 		if(Cname == ""){
-			$('#Fname').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#Fname').css({'border-color':'red','border-width':'2px'});
+			$('#cfName').prev().html("<span style='color:red;'>*Enter Name</span>");
+			$('#cfName').css({'border-color':'red','border-width':'2px'});
 			errors[0] = 1;
 		} else {
-			$('#Fname').prev().html("");
-			$('#Fname').css({'border-color':'#ccc','border-width':'1px'});
+			$('#cfName').prev().html("");
+			$('#cfName').css({'border-color':'#ccc','border-width':'1px'});
 			sCname = $.sanitize(Cname);
 			errors[0] = 0;
 		} 
 		if(Cemail == ""){
-			$('#email').prev().html("<span style='color: red;'>*Enter Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').prev().html("<span style='color: red;'>*Enter Email</span>");
+			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
 		} else if(Cemail != "" && isValidEmail == false) {
-			$('#email').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
-			$('#email').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
+			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
 		} else {
-			$('#email').prev().html("");
-			$('#email').css({'border-color':'#ccc','border-width':'1px'});
+			$('#cfEmail').prev().html("");
+			$('#cfEmail').css({'border-color':'#ccc','border-width':'1px'});
 			errors[2] = 0;
 		}
 
