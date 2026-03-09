@@ -42,9 +42,9 @@ $(document).ready(function(){
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
-
-                console.log("data " + data[0][0]);
-
+                let columnNames = Object.keys(data[0]);
+                console.log("columnNames " + columnNames);
+                
                 // $.each(data, function(index, row) {
                 //     console.log(row.FullName + " " + row.Email + " " + " " + row.Phone + " " + row.ServiceRequested + " "+ row.CustomerMessage + " " + " " + row.SubmissionDate);
                 // });
