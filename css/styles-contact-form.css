@@ -41,9 +41,7 @@
 
 .response-container {    
   background-color: #222020;
-    width: max-content;
     min-width: 1vw;
-    height: max-content;
     min-height: 100px;
     border: 1px dotted #ffffff;
     min-width: 36rem;
@@ -55,6 +53,11 @@
     align-items: start;
     transition: transform 0.3s ease-in-out;
     transform: translate(0, 0) scale(1); 
+}
+
+.response-container-div.is-loading {
+  transform: scale(.5);
+  /* Combine transforms in a single declaration */
 }
 
 .data-col {
