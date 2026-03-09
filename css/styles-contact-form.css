@@ -30,7 +30,6 @@
 
 .admin-form-btn {
   display: grid; 
-  justify-content:center;
 }
 
 .admin-inner-left {
@@ -40,9 +39,11 @@
   justify-content: right;
 }
 
-
 .response-container {    background-color: #222020;
-    width: 100%;
+    width: max-content;
+    min-width: 1vw;
+    height: max-content;
+    min-height: 100px;
     border: 1px dotted #ffffff;
     min-width: 36rem;
     height: auto;
