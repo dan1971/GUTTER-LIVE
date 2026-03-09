@@ -54,16 +54,17 @@
     align-items: start;
 }
 
-.response-col-header {
+.data-col {
 color: #252525;
 font-family: sans-serif;
 font-size: .9rem;
-font-weight: 500;
+font-weight: 600;
 }
 
 .data-row{
 display:grid;
  grid-template-columns: repeat(6, 1fr);
+
 }
 
 .response-field-cell {

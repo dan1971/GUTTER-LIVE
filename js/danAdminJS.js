@@ -51,7 +51,7 @@ $(document).ready(function(){
 
                 // /*Process the JSON data and display it
                 $.each(data, function(index, row) {
-                let colHeadDiv = $('<div>').addClass('data-row');
+                let colHeadDiv = $('<div>').addClass('data-row data-col');
                 colHeadDiv.append('<div class="response-field-cell">Name</div>');
                 colHeadDiv.append('<div class="response-field-cell">Email</div>');
                 colHeadDiv.append('<div class="response-field-cell">Phone</div>');
@@ -60,12 +60,12 @@ $(document).ready(function(){
                 colHeadDiv.append('<div class="response-field-cell">Date Sent</div>');
                 $(".response-container").append(colHeadDiv);
                 let rowDiv = $('<div>').addClass('data-row');
-                    rowDiv.append('<div class="response-field-cell">Name: ' + row.FullName + '</div>');
-                     rowDiv.append('<div class="response-field-cell">Email: ' + row.Email + '</div>');
-                      rowDiv.append('<div class="response-field-cell">Phone: ' + row.Phone + '</div>');
-                       rowDiv.append('<div class="response-field-cell">Service: ' + row.ServiceRequested + '</div>');
-                        rowDiv.append('<div class="response-field-cell">Message: ' + row.CustomerMessage + '</div>');
-                            rowDiv.append('<div class="response-field-cell">Date Sent: ' + row.SubmissionDate + '</div>');
+                    rowDiv.append('<div class="response-field-cell">' + row.FullName + '</div>');
+                     rowDiv.append('<div class="response-field-cell">' + row.Email + '</div>');
+                      rowDiv.append('<div class="response-field-cell">' + row.Phone + '</div>');
+                       rowDiv.append('<div class="response-field-cell">' + row.ServiceRequested + '</div>');
+                        rowDiv.append('<div class="response-field-cell">' + row.CustomerMessage + '</div>');
+                            rowDiv.append('<div class="response-field-cell">' + row.SubmissionDate + '</div>');
                              $(".response-container").append(rowDiv);
                 });
                
