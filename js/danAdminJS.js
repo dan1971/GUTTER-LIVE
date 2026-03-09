@@ -54,7 +54,7 @@ $(document).ready(function(){
                 $.each(data, function(index, row) {
 
                 let colHeadDiv = $('<div>').addClass('data-row');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + row.key) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + row.key + '</div>');
 
                 $(".response-container").append(colHeadDiv);
 
