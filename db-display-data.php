@@ -18,7 +18,7 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 
-    $sql = "SELECT * FROM `CustomerInquiries` WHERE 1";
+    $sql = "SELECT * FROM `CustomerInquiries`";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
