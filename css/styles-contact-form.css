@@ -40,7 +40,7 @@
   justify-content: right;
 }
 
-#response-container {
+.response-container {
   border: 1px solid;
   Width: 100%;
   height: auto;
