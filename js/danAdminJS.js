@@ -45,14 +45,15 @@ $(document).ready(function(){
                     console.log(row.FullName + " " + row.Email + " " + " " + row.Phone + " " + row.ServiceRequested + " "+ row.CustomerMessage + " " + " " + row.SubmissionDate);
                 });
 
-                /*Process the JSON data and display it
+                // /*Process the JSON data and display it
+                
                 let htmlOutput = "<div class='response-field-cell'>";
-                $.each(data, function(i, item) {
-                    htmlOutput + item.id + "</div>" + htmlOutput + item.FullName + "</div>" + htmlOutput + item.Email + "</div>" + htmlOutput + "</div>" + htmlOutput + item.Phone + "</div>" + htmlOutput + item.ServiceRequested + "</div>" + htmlOutput + item.CustomerMessage + "</div>";
+                let buildResponseGrid = $.each(data, function(index, row) {
+                    htmlOutput + row.InquiryID + "</div>" + htmlOutput + "Name:" + row.FullName + "</div>" + htmlOutput + "Email:" + row.Email + "</div>" + htmlOutput + "Phone:" + row.Phone + "</div>" + htmlOutput + "Service:" + row.ServiceRequested + "</div>" +  htmlOutput + "Message:" + row.CustomerMessage + "</div></div>";
+                    
                 });
-                htmlOutput += "</div>";
-                $("#response-container").html(htmlOutput);
-                */
+                $("#response-container").html(buildResponseGrid);
+            
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
