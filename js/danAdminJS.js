@@ -26,7 +26,7 @@ $(document).ready(function(){
 
 
 	// GET DATA FROM DB
-		$("#viewDB").on("click", (e)=>{
+		$("#viewDB-btn").on("click", (e)=>{
 		e.preventDefault();
         if ($('.response-container').is(':empty')) {
                 getCustomerData();
