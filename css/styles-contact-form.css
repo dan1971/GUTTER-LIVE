@@ -59,7 +59,7 @@ font-weight: 500;
 
 .data-row{
   display:grid;
- grid-template-columns: repeat(5, 1fr);
+ grid-template-columns: repeat(6, 1fr);
 }
 
 .response-field-cell {
