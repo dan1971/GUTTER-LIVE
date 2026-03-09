@@ -47,6 +47,18 @@
     border: 1px solid black; /* Outer border */
   }
 
+  .response-table-row {
+    display: table-row;
+
+
+  .response-table-cell {
+    display: table-cell;
+    padding: 10px;
+    text-align: center;
+    /* Adds borders to all sides of each cell */
+    border: 1px solid rgb(213, 213, 213);
+  }
+
 #response-container {
   border: 1px solid;
   Width: 100%;
