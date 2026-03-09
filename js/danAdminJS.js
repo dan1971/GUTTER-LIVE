@@ -43,7 +43,7 @@ $(document).ready(function(){
             dataType: "json", // Expect JSON data
             success: function(data) {
 
-                console.log("data " + data);
+                console.log("data " + data[0]);
 
                 // $.each(data, function(index, row) {
                 //     console.log(row.FullName + " " + row.Email + " " + " " + row.Phone + " " + row.ServiceRequested + " "+ row.CustomerMessage + " " + " " + row.SubmissionDate);
