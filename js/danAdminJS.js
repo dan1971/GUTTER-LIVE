@@ -54,12 +54,12 @@ $(document).ready(function(){
                 $.each(data, function(index, row) {
 
                 let colHeadDiv = $('<div>').addClass('data-row');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][0]) + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][1]) + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][2]) + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][3]) + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][4]) + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.key(data[0][5]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][0]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][1]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][2]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][3]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][4]) + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + Object.keys(data[0][5]) + '</div>');
                 $(".response-container").append(colHeadDiv);
 
                 let rowDiv = $('<div>').addClass('data-row');
