@@ -2,6 +2,7 @@
 /* Admin Page Styles */
 
 .admin-page-container {
+  height: 100vh;
   background-color: #242525; /* deep teal, matches supplied design */
   color: var(--text-light);
   padding: 3rem 2rem 3rem;
@@ -39,14 +40,6 @@
   justify-content: right;
 }
 
-  .response-container {
-  display: table;
-  width: 100%;
-  /* Collapses borders into a single line, like a real table */
-  border-collapse: collapse;
-  border: 1px solid black; /* Outer border */
-  }
-  
 #response-container {
   border: 1px solid;
   Width: 100%;
