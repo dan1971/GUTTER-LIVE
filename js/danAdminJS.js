@@ -50,18 +50,15 @@ $(document).ready(function(){
                 // });
 
                 // /*Process the JSON data and display it
-                let keyName=0;
                 $.each(data, function(index, row) {
                 let colHeadDiv = $('<div>').addClass('data-row');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
-                keyName+=1;
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">Name</div>');
+                colHeadDiv.append('<div class="response-field-cell">Email</div>');
+                colHeadDiv.append('<div class="response-field-cell">Phone</div>');
+                colHeadDiv.append('<div class="response-field-cell">Service</div>');
+                colHeadDiv.append('<div class="response-field-cell">Message</div>');
+                colHeadDiv.append('<div class="response-field-cell">Date Sent</div>');
                 $(".response-container").append(colHeadDiv);
-                keyName=0;
                 let rowDiv = $('<div>').addClass('data-row');
                     rowDiv.append('<div class="response-field-cell">Name: ' + row.FullName + '</div>');
                      rowDiv.append('<div class="response-field-cell">Email: ' + row.Email + '</div>');
