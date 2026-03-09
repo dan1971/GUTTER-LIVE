@@ -40,17 +40,17 @@
   justify-content: right;
 }
 
-.response-container {
-  background-color: #2a4759;
-  border: 1px solid;
-  width: 100%;
-  min-height: 250px;
-  min-width:350px;
-  height: auto;
-  margin: 0 auto;
-  display: grid;
-  justify-content: space-between;
-  align-items: start;
+
+.response-container {    background-color: #222020;
+    width: 100%;
+    border: 1px dotted #ffffff;
+    min-height: 11rem;
+    min-width: 36rem;
+    height: auto;
+    margin: 0 auto;
+    display: grid;
+    justify-content: space-between;
+    align-items: start;
 }
 
 .response-col-header {
@@ -75,7 +75,7 @@ font-weight: 600;
 }
 
 .admin-header {
-
+text-align: right;
     & h2 {
       font-size: 1.6rem;
       font-weight: 600;
