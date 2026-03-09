@@ -77,13 +77,19 @@ font-weight: 600;
 .admin-header {
 text-align: right;
     & h2 {
-      font-size: 1.7rem;
+      font-size: 2rem;
       font-weight: 600;
       margin-bottom:.03rem;
     }
     & h5 {
       margin-bottom: .6rem;
     }
+}
+
+#viewDB-btn {
+    padding: 0.6rem .7rem;
+    border-radius: .1rem;
+    font-size: .8rem;
 }
 
 /* Admin END  */
