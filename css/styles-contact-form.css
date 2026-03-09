@@ -39,7 +39,8 @@
   justify-content: right;
 }
 
-.response-container {    background-color: #222020;
+.response-container {    
+  background-color: #222020;
     width: max-content;
     min-width: 1vw;
     height: max-content;
@@ -55,21 +56,21 @@
 }
 
 .data-col {
+background-color: #fff;
 color: #252525;
 font-family: sans-serif;
-font-size: .9rem;
+font-size: 1rem;
 font-weight: 600;
 }
 
 .data-row{
 display:grid;
  grid-template-columns: repeat(6, 1fr);
-
+background-color: #fff;
 }
 
 .response-field-cell {
 padding: .5rem .7rem .5rem;
-background-color: #ffffff;
 color: #252525;
 font-family: sans-serif;
 font-size: .8rem;
