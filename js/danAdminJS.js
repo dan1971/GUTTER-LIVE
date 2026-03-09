@@ -46,10 +46,11 @@ $(document).ready(function(){
                 // });
 
                 // /*Process the JSON data and display it
-                
+                let buildResponseGrid;
                 let htmlOutput = "<div class='response-field-cell'>";
-                let buildResponseGrid = $.each(data, function(index, row) {
-                    htmlOutput + row.InquiryID + "</div>" + htmlOutput + "Name:" + row.FullName + "</div>" + htmlOutput + "Email:" + row.Email + "</div>" + htmlOutput + "Phone:" + row.Phone + "</div>" + htmlOutput + "Service:" + row.ServiceRequested + "</div>" +  htmlOutput + "Message:" + row.CustomerMessage + "</div></div>";
+                 $.each(data, function(index, row) {
+                    
+                    buildResponseGrid += htmlOutput + row.InquiryID + "</div>" + htmlOutput + "Name:" + row.FullName + "</div>" + htmlOutput + "Email:" + row.Email + "</div>" + htmlOutput + "Phone:" + row.Phone + "</div>" + htmlOutput + "Service:" + row.ServiceRequested + "</div>" +  htmlOutput + "Message:" + row.CustomerMessage + "</div></div>";
                     
                 });
                 console.log("b" + buildResponseGrid);
