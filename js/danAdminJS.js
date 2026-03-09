@@ -46,15 +46,18 @@ $(document).ready(function(){
                 // });
 
                 // /*Process the JSON data and display it
-                let buildResponseGrid;
-                let htmlOutput = "<div class='response-field-cell'>";
-                 buildResponseGrid += $.each(data, function(index, row) {
-                    
-                     htmlOutput + row.InquiryID + "</div>" + htmlOutput + "Name:" + row.FullName + "</div>" + htmlOutput + "Email:" + row.Email + "</div>" + htmlOutput + "Phone:" + row.Phone + "</div>" + htmlOutput + "Service:" + row.ServiceRequested + "</div>" +  htmlOutput + "Message:" + row.CustomerMessage + "</div></div>";
-                    
+                
+                $.each(data, function(index, row) {SubmissionDate
+                    let rowDiv = $('<div>').addClass('data-row');
+                    rowDiv.append('<div class='response-field-cell'>Name: ' + row.FullName + '</div>');
+                     rowDiv.append('<div class='response-field-cell'>Email: ' + row.Email + '</div>');
+                      rowDiv.append('<div class='response-field-cell'>Phone: ' + row.Phone + '</div>');
+                       rowDiv.append('<div class='response-field-cell'>Service: ' + row.ServiceRequested + '</div>');
+                        rowDiv.append('<div class='response-field-cell'>Message: ' + row.CustomerMessage + '</div>');
+                            rowDiv.append('<div class='response-field-cell'>Date Sent: ' + row.SubmissionDate + '</div>');
+                            $("#response-container").html(buildResponseGrid);
                 });
-                console.log("b" + buildResponseGrid);
-                $("#response-container").html(buildResponseGrid);
+                $("#response-container").append(rowDiv);
             
             },
             error: function(jqXHR, textStatus, errorThrown) {
