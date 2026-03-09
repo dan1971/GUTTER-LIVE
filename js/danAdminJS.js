@@ -53,9 +53,9 @@ $(document).ready(function(){
                 
                 $.each(data, function(index, row) {
 
-                let colHeadDiv = $('<div>').addClass('colHead-row');
+                let colHeadDiv = $('<div>').addClass('data-row');
+                colHeadDiv.append('<div class="response-field-cell">Name: ' + row[0]+ '</div>');
                 let rowDiv = $('<div>').addClass('data-row');
-                colHeadDiv.append('<div class="response-field-cell">Name: ' + row.FullName + '</div>');
                     rowDiv.append('<div class="response-field-cell">Name: ' + row.FullName + '</div>');
                      rowDiv.append('<div class="response-field-cell">Email: ' + row.Email + '</div>');
                       rowDiv.append('<div class="response-field-cell">Phone: ' + row.Phone + '</div>');
