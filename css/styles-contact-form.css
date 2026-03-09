@@ -90,6 +90,11 @@ text-align: right;
   width: 100%;
 }
 
+.form-input-titles {
+  margin-bottom: .3rem;
+
+}
+
 .form-submit-message-container-screen {
   position:absolute;
   display: none;
@@ -122,8 +127,6 @@ text-align: right;
   color:#ff7739;
   margin: 0 0 3px 6px;
 }
-
-
 
 .loading-text-spinner-container {
   position:absolute;
