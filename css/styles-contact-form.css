@@ -84,7 +84,7 @@ font-weight: 500;
 
 .response-field-cell {
 padding: .5rem .7rem .5rem;
-width:fit-content;
+width:100%;
 background-color: #ffffff;
 color: #252525;
 font-family: sans-serif;
