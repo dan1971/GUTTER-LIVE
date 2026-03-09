@@ -66,19 +66,28 @@
 #response-container {
   border: 1px solid;
   max-width: 1200px;
-  Width: 600px;
-  height: 400px;
+  Width: 100%;
+  height: auto;
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
+}
+
+.response-col-header {
+color: #252525;
+font-family: sans-serif;
+font-size: .9rem;
+font-weight: 500;
 }
 
 .response-field-cell {
 padding: .5rem .7rem .5rem;
 width:fit-content;
-background-color: #ccc;
+background-color: #ffffff;
 color: #252525;
+font-family: sans-serif;
 font-size: .8rem;
 }
 
