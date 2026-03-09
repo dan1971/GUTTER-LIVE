@@ -28,7 +28,11 @@ $(document).ready(function(){
 	// GET DATA FROM DB
 		$("#viewDB").on("click", (e)=>{
 		e.preventDefault();
-			getCustomerData();
+        if ($('.response-container').is(':empty')) {
+                getCustomerData();
+            } else {
+                console.log("Container is already populated");
+            }
 
 		});
 
@@ -48,6 +52,7 @@ $(document).ready(function(){
                 // /*Process the JSON data and display it
                 
                 $.each(data, function(index, row) {
+
                 let rowDiv = $('<div>').addClass('data-row');
                     rowDiv.append('<div class="response-field-cell">Name: ' + row.FullName + '</div>');
                      rowDiv.append('<div class="response-field-cell">Email: ' + row.Email + '</div>');
