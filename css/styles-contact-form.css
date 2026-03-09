@@ -48,6 +48,7 @@
     height: auto;
     margin: 0 auto;
     display: grid;
+    gap: 1px;
     justify-content: space-between;
     align-items: start;
 }
@@ -60,7 +61,7 @@ font-weight: 500;
 }
 
 .data-row{
-  display:grid;
+display:grid;
  grid-template-columns: repeat(6, 1fr);
 }
 
