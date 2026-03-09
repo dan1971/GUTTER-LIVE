@@ -53,8 +53,8 @@
     gap: 1px;
     justify-content: space-between;
     align-items: start;
-    transition: all .25s;
-    transform: translateX();
+    transition: transform 0.3s ease-in-out;
+    transform: translate(0, 0) scale(1); 
 }
 
 .data-col {
