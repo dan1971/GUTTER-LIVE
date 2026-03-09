@@ -46,7 +46,6 @@
   height: auto;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   justify-content: space-between;
   align-items: start;
 }
@@ -56,6 +55,11 @@ color: #252525;
 font-family: sans-serif;
 font-size: .9rem;
 font-weight: 500;
+}
+
+.data-row{
+  display:grid;
+ grid-template-columns: repeat(5, 1fr);
 }
 
 .response-field-cell {
