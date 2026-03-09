@@ -54,7 +54,7 @@ $(document).ready(function(){
                     
                 });
                 console.log("b" + buildResponseGrid);
-                $("#response-container").html(buildResponseGrid);
+                $(".response-container").html(buildResponseGrid);
             
             },
             error: function(jqXHR, textStatus, errorThrown) {
