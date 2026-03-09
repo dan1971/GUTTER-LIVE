@@ -55,9 +55,9 @@ $(document).ready(function(){
                        rowDiv.append('<div class="response-field-cell">Service: ' + row.ServiceRequested + '</div>');
                         rowDiv.append('<div class="response-field-cell">Message: ' + row.CustomerMessage + '</div>');
                             rowDiv.append('<div class="response-field-cell">Date Sent: ' + row.SubmissionDate + '</div>');
-                            $("#response-container").html(buildResponseGrid);
+                             $("#response-container").append(rowDiv);
                 });
-                $("#response-container").append(rowDiv);
+               
             
             },
             error: function(jqXHR, textStatus, errorThrown) {
