@@ -53,7 +53,7 @@ $(document).ready(function(){
                 let keyName=0;
                 $.each(data, function(index, row) {
                 let colHeadDiv = $('<div>').addClass('data-row');
-                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[0] + '</div>');
+                colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
                 keyName+=1;
                 colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
                 colHeadDiv.append('<div class="response-field-cell">'+ columnNames[keyName] + '</div>');
