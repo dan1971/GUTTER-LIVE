@@ -42,7 +42,7 @@ $(document).ready(function(){
                 console.log("data " + data);
 
                 $.each(data, function(index, row) {
-                    console.log(row.FullName);
+                    console.log(row.FullName + " " + row.Email + " " + " " + row.Phone + " " + row.ServiceRequested + " "+ row.CustomerMessage + " " + " " + row.SubmissionDate);
                 });
 
                 /*Process the JSON data and display it
