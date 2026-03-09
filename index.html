@@ -213,30 +213,30 @@
                 <!--FORM MESSSSAGE END-->
             <form id="contact-form" class="contact-form glass-card" action="" method="post" novalidate>
               <div class="form-row">
-                <label class="form-error-mssge" for="name"></label>
+                <label class="form-error-mssge" for="cfName"></label>
                 <input type="text" id="cfName" name="name" placeholder="Your Name" required>
               </div>
 
               <div class="form-row">
-                <label class="form-error-mssge" for="phone"></label>
+                <label class="form-error-mssge" for="cfPhone"></label>
                 <input type="tel" id="cfPhone" name="phone" placeholder="Phone Number">
               </div>
 
               <div class="form-row">
-               <label class="form-error-mssge" for="email"></label>
+               <label class="form-error-mssge" for="cfEmail"></label>
                 <input type="email" id="cfEmail" name="email"  placeholder="Email" required>
               </div>
 
               <div class="form-row">
-                <label for="service[]">Services Needed</label>
+                <div class="cfInstallCheckbox">Services Needed</div>
                 <div class="checkbox-group">
-                  <label><input type="checkbox" id="cfInstallCheckbox" name="service[]" value="Install"> Install</label>
-                  <label><input type="checkbox" id="cfRepairCheckbox" name="service[]" value="Repair"> Repair</label>
-                  <label><input type="checkbox" id="cfInspectionCheckbox" name="service[]" value="Inspection"> Inspection</label>
+                  <label for="cfInstallCheckbox"><input type="checkbox" id="cfInstallCheckbox" name="service[]" value="Install"> Install</label>
+                  <label for="cfInstallCheckbox"><input type="checkbox" id="cfRepairCheckbox" name="service[]" value="Repair"> Repair</label>
+                  <label for="cfInstallCheckbox"><input type="checkbox" id="cfInspectionCheckbox" name="service[]" value="Inspection"> Inspection</label>
                 </div>
               </div>
               <div class="form-row">
-                <label for="message">Message</label>
+                <label for="cfMessage">Message</label>
                 <textarea id="cfMessage" name="message" rows="4"></textarea>
               </div>
               <div class="form-row footer-form-btn form-actions">
