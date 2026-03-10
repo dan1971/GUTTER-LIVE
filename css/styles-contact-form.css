@@ -13,7 +13,7 @@
 .admin-content {
   display: grid;
   height: 100vh;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto 1fr;
   margin: 0 auto;
   gap: 3rem;
   align-items: start;
@@ -37,6 +37,16 @@
   margin: 0 auto;
   width:100%;
   justify-content: right;
+  padding-right:2rem;
+}
+
+.admin-inner-right {
+    background-color: #000000;
+    width: 100%;
+    display: grid;
+    margin: 0 auto;
+    gap: 2rem;
+    align-items: start;
 }
 
 .response-container {    
@@ -71,15 +81,16 @@ font-weight: 600;
 
 .data-row{
 display:grid;
- grid-template-columns: repeat(6, 1fr);
+ grid-template-columns: repeat(6, auto);
 background-color: #fff;
 }
 
 .response-field-cell {
-padding: .5rem .7rem .5rem;
-color: #252525;
-font-family: sans-serif;
-font-size: .8rem;
+    text-align: left;
+    padding: .5rem;
+    color: #252525;
+    font-family: sans-serif;
+    font-size: .8rem;
 }
 
 .admin-header {
