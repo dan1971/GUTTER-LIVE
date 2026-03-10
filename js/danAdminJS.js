@@ -35,22 +35,18 @@ $(document).ready(function(){
             }
 
 		});
-
       getCustomerData = (formData)=>{
 	   $.ajax({
         url: "db-display-data.php",
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
-                let columnNames = Object.keys(data[0]);
-                console.log("columnNames " + columnNames);
-                
-                // $.each(data, function(index, row) {
-                //     console.log(row.FullName + " " + row.Email + " " + " " + row.Phone + " " + row.ServiceRequested + " "+ row.CustomerMessage + " " + " " + row.SubmissionDate);
-                // });
-
                 // /*Process the JSON data and display it
-                $.each(data, function(index, row) {
+                
+                if (data){
+                $('.loader').css('display','none');
+                $('#send-status-message').css('display','none');
+                                $.each(data, function(index, row) {
                 if(index==0){
                     let colHeadDiv = $('<div>').addClass('data-row data-col');
                     colHeadDiv.append('<div class="response-field-cell">Name</div>');
@@ -70,6 +66,9 @@ $(document).ready(function(){
                             rowDiv.append('<div class="response-field-cell">' + row.SubmissionDate + '</div>');
                              $(".response-container").append(rowDiv);
                 });
+                };
+
+
                
             
             },
