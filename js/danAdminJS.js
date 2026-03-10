@@ -46,7 +46,11 @@ $(document).ready(function(){
                 if (data){
                 $('.loader').css('display','none');
                 $('#send-status-message').css('display','none');
+<<<<<<< HEAD
                                 $.each(data, function(index, row) {
+=======
+                $.each(data, function(index, row) {
+>>>>>>> 3a9148121524e8dfb033ad3a034a7bc4acf787ae
                 if(index==0){
                     let colHeadDiv = $('<div>').addClass('data-row data-col');
                     colHeadDiv.append('<div class="response-field-cell">Name</div>');
@@ -66,9 +70,16 @@ $(document).ready(function(){
                             rowDiv.append('<div class="response-field-cell">' + row.SubmissionDate + '</div>');
                              $(".response-container").append(rowDiv);
                 });
+<<<<<<< HEAD
                 };
 
 
+=======
+
+                })
+
+ 
+>>>>>>> 3a9148121524e8dfb033ad3a034a7bc4acf787ae
                
             
             },
