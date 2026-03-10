@@ -70,6 +70,8 @@ $(document).ready(function(){
                 console.log("Request failed: " + textStatus, errorThrown);
                  
             }
+        
         });
+    }
 
 });
