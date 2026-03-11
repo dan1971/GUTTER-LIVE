@@ -12,7 +12,7 @@
 
 .admin-content {
   display: grid;
-  height: 100vh;
+  height: 100%;
   grid-template-columns: auto 1fr;
   margin: 0 auto;
   gap: 3rem;
