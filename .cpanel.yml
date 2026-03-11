@@ -10,4 +10,4 @@ deployment:
     - /bin/cp  db-display-data.php $DEPLOYPATH
     - /bin/cp  indexAdmin.html $DEPLOYPATH
     - /bin/cp  index.html $DEPLOYPATH
-    - /bin/cp  favicon.ico $DEPLOYPATH
+    - /bin/cp  favicon.svg $DEPLOYPATH
