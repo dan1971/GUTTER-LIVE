@@ -47,6 +47,7 @@ $(document).ready(function(){
 	   $.ajax({
         url: "db-display-data.php",
             type: "GET",
+            cache: false, // Prevents browser caching
             dataType: "json", // Expect JSON data
             success: function(data) {
 
