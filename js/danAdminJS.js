@@ -6,7 +6,6 @@ $(document).ready(function(){
 		$("#viewDB-btn").on("click", (e)=>{
 		e.preventDefault();
         if ($('.response-container').is(':empty')) {
-            
 		    $('.form-submit-message-container').css('display','inline-block');
 		    $('#send-status-message').html("Fetching Form Input Data");
 
@@ -15,6 +14,7 @@ $(document).ready(function(){
             }, 3000);
 
             } else {
+                $('.form-submit-message-container').css('display','none');
                 $('.loader').css('display','none');
                 $('#send-status-message').html("This is the current list");
                 
@@ -33,7 +33,7 @@ $(document).ready(function(){
             cache: false, // Prevents browser caching
             dataType: "json", // Expect JSON data
             success: function(data) {
-
+                $('.form-submit-message-container').css('display','none');
                 $('.loader').css('display','none');
                 $('#send-status-message').html("");
 
@@ -62,6 +62,7 @@ $(document).ready(function(){
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
+                $('.form-submit-message-container').css('display','none');
                 $('.loader').css('display','none');
                 $('#send-status-message').html("Error Fetching Data: " + errorThrown);
                  
