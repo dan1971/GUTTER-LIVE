@@ -19,6 +19,7 @@
 }
 
 .admin-page-container {
+  height:100vh;
   background-color: #242525; /* deep teal, matches supplied design */
   color: var(--text-light);
   padding: 3rem 2rem 3rem;
