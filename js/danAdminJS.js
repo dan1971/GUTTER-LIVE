@@ -1,48 +1,6 @@
 $(document).ready(function(){
 
 
-  sendInfo = (formData)=>{
-	  $.ajax({
-        type: 'POST',
-        url: "contact_form_submit.php",
-		data: formData,
-		success: function(data) {
-        // Display the response from the PHP script
-		console.log(data)
-        let h = $('.form-container-all').height();
-		$('.form-container-all').css('height',h);
-		$('.loader').css('display','none');
-		$('#send-status-message').html("Message Sent!<br> Thank you! We will be in touch within 24hrs.");
-		
-         },
-       error: function(jqXHR, textStatus, errorThrown) {
-				let h = $('.form-container-all').height();
-		     $('.form-container-all').css('height',h);
-		     $('.loader').css('display','none');
-		      $('#send-status-message').html(errorThrown);
-                console.log("Request failed: " + textStatus, errorThrown);
-                 }
-        });}
-
-
-	// GET DATA FROM DB
-		$("#viewDB-btn").on("click", (e)=>{
-		e.preventDefault();
-        if ($('.response-container').is(':empty')) {
-		    $('.loader').css('display','inline-block');
-		    $('#send-status-message').html("Fetching Form Input Data");
-            setTimeout(() => {
-             getCustomerData();
-            }, 3000);
-
-            } else {
-                $('.loader').css('display','none');
-                $('#send-status-message').html("This is the current list");
-                
-            }
-
-		});
-
       getCustomerData = (formData)=>{
 
         $('.loader').css('display','inline-block');
