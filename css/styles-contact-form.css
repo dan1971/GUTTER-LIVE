@@ -75,7 +75,7 @@ font-weight: 600;
 
 .data-row{
 display:grid;
- grid-template-columns: repeat(6, auto);
+ grid-template-columns: repeat(6, 1fr);
 background-color: #fff;
 }
 
