@@ -62,7 +62,7 @@ $(document).ready(function(){
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
-                $('.form-submit-message-container').css('display','none');
+                $('.form-submit-message-container').css('display','inline-block');
                 $('.loader').css('display','none');
                 $('#send-status-message').html("Error Fetching Data: " + errorThrown);
                  
