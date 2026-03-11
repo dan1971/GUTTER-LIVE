@@ -6,9 +6,10 @@ $(document).ready(function(){
 		$("#viewDB-btn").on("click", (e)=>{
 		e.preventDefault();
         if ($('.response-container').is(':empty')) {
-		    $('.loader').css('display','inline-block');
-		    $('#send-status-message').html("Fetching Form Input Data");
             
+		    $('.form-submit-message-container').css('display','inline-block');
+		    $('#send-status-message').html("Fetching Form Input Data");
+
             setTimeout(() => {
              getCustomerData();
             }, 3000);
