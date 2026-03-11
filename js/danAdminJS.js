@@ -31,10 +31,14 @@ $(document).ready(function(){
         if ($('.response-container').is(':empty')) {
 		    $('.loader').css('display','inline-block');
 		    $('#send-status-message').html("Fetching Form Input Data");
-            getCustomerData();
-            
+            setTimeout(() => {
+             getCustomerData();
+            }, 3000);
+
             } else {
-                console.log("Container is already populated");
+                $('.loader').css('display','none');
+                $('#send-status-message').html("This is the current list");
+                
             }
 
 		});
