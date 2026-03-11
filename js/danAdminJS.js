@@ -29,21 +29,31 @@ $(document).ready(function(){
 		$("#viewDB-btn").on("click", (e)=>{
 		e.preventDefault();
         if ($('.response-container').is(':empty')) {
-                getCustomerData();
+		    $('.loader').css('display','inline-block');
+		    $('#send-status-message').html("Fetching Form Input Data");
+            getCustomerData();
+            
             } else {
                 console.log("Container is already populated");
             }
 
 		});
+
       getCustomerData = (formData)=>{
+
+        $('.loader').css('display','inline-block');
+		$('#send-status-message').html("Fetching Form Input Data");
+
 	   $.ajax({
         url: "db-display-data.php",
             type: "GET",
             dataType: "json", // Expect JSON data
             success: function(data) {
-                // /*Process the JSON data and display it
-                
 
+                $('.loader').css('display','none');
+                $('#send-status-message').html("");
+
+                // /*Process the JSON data and display it
                 $.each(data, function(index, row) {
                 if(index==0){
                     let colHeadDiv = $('<div>').addClass('data-row data-col');
@@ -68,6 +78,8 @@ $(document).ready(function(){
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log("Request failed: " + textStatus, errorThrown);
+                $('.loader').css('display','none');
+                $('#send-status-message').html("Error Fetching Data: " + errorThrown);
                  
             }
         
