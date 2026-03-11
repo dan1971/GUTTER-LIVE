@@ -28,7 +28,7 @@ $(document).ready(function(){
 		$('#send-status-message').html("Fetching Form Input Data");
 
 	   $.ajax({
-        url: "dbb-display-data.php",
+        url: "db-display-data.php",
             type: "GET",
             cache: false, // Prevents browser caching
             dataType: "json", // Expect JSON data
