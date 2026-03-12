@@ -238,4 +238,15 @@ text-align: right;
   100% {
     transform: rotate(-360deg);
   }
+
+}
+
+@media (max-width: 480px) {
+.admin-content {
+  display: grid;
+  grid-template-columns: auto;
+  margin: 0 auto;
+  gap: 3rem;
+  align-items: start;
+}
 }
