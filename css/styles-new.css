@@ -278,7 +278,7 @@ a:active {
   position: relative;
   border-radius: 9px;
   background: rgba(248, 248, 248, 0);
- backdrop-filter: blur(7px) saturate(105%);
+ backdrop-filter: blur(7px) saturate(300%);
   -webkit-backdrop-filter: blur(3px) saturate(300%);
   border: 2px solid rgba(204, 204, 204, 0.2);
   box-shadow: -2px 1px 26px 0 rgba(0, 0, 0, 0.28),
