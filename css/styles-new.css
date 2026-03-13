@@ -997,7 +997,7 @@ line-height: 1.1rem;
 }
 
 .contact-form .form-row { margin-bottom: 0.75rem; }
-.contact-form label { display:block; font-weight:700; color: var(--text-light); margin-bottom: 6px; font-size: 0.85rem; }
+.contact-form label { display:block; font-weight:700; color: var(--text-light); margin-bottom: 6px; font-size: 0.7rem; }
 .contact-form input[type="text"],
 .contact-form input[type="tel"],
 .contact-form input[type="email"],
