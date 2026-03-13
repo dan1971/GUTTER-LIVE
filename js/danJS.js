@@ -161,8 +161,8 @@ canvas.height = parentHeight;
 
 	  let errors = [0,0,0,0];
 		if(Cname == ""){
-			$('#cfName').prev().html("<span style='color:red;'>*Enter Name</span>");
-			$('#cfName').css({'border-color':'red','border-width':'2px'});
+			$('#cfName').prev().html("<span style='color: #ffcc01;'>*Enter Name</span>");
+			$('#cfName').css({'border-color':'#ffcc01','border-width':'2px'});
 			errors[0] = 1;
 		} else {
 			$('#cfName').prev().html("");
@@ -171,11 +171,11 @@ canvas.height = parentHeight;
 			errors[0] = 0;
 		} 
 		if(Cemail == ""){
-			$('#cfEmail').prev().html("<span style='color: red;'>*Enter Email</span>");
+			$('#cfEmail').prev().html("<span style='color: #ffcc01;'>*Enter Email</span>");
 			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
 		} else if(Cemail != "" && isValidEmail == false) {
-			$('#cfEmail').prev().html("<span style='color: red;'>*Enter a valid Email</span>");
+			$('#cfEmail').prev().html("<span style='color: #ffcc01;'>*Enter a valid Email</span>");
 			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
 			errors[2] = 1;
 		} else {
