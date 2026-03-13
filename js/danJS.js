@@ -232,29 +232,6 @@ canvas.height = parentHeight;
 
 		// retrieve DB data
 
-		$("#viewDB").on("click", (e)=>{
-		e.preventDefault();
-			getCustomerData();
 
-		});
-
-      getCustomerData = (formData)=>{
-	   $.ajax({
-        url: "fetch_data.php",
-            type: "GET",
-            dataType: "json", // Expect JSON data
-            success: function(data) {
-                // Process the JSON data and display it
-                let htmlOutput = "<div class='response-field-cell'>";
-                $.each(data, function(i, item) {
-                    htmlOutput + item.id + "</div>" + htmlOutput + item.FullName + "</div>" + htmlOutput + item.Email + "</div>" + htmlOutput + "</div>" + htmlOutput + item.Phone + "</div>" + htmlOutput + item.ServiceRequested + "</div>" + htmlOutput + item.CustomerMessage + "</div>";
-                });
-                htmlOutput += "</ul>";
-                $("#response-container").html(htmlOutput);
-            },
-            error: function(xhr, status, error) {
-                console.error("Error fetching data: " + error);
-            }
-        });}
 
 });
