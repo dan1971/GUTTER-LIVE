@@ -172,11 +172,11 @@ canvas.height = parentHeight;
 		} 
 		if(Cemail == ""){
 			$('#cfEmail').prev().html("<span style='color: #ffcc01;'>*Enter Email</span>");
-			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').css({'border-color':'#ffcc01','border-width':'2px'});
 			errors[2] = 1;
 		} else if(Cemail != "" && isValidEmail == false) {
 			$('#cfEmail').prev().html("<span style='color: #ffcc01;'>*Enter a valid Email</span>");
-			$('#cfEmail').css({'border-color':'red','border-width':'2px'});
+			$('#cfEmail').css({'border-color':'#ffcc01','border-width':'2px'});
 			errors[2] = 1;
 		} else {
 			$('#cfEmail').prev().html("");
