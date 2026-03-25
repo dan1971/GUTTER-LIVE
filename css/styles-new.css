@@ -678,8 +678,11 @@ a:active {
 .service-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  &.glass-card {
+  .glass-card {
      backdrop-filter: blur(0) saturate(0);
+  }
+  .card-icon img{
+    transform: scale(1.2);
   }
 }
 
@@ -697,6 +700,7 @@ a:active {
   width: 84px;
   height: auto;
   object-fit: contain;
+  transition: transform .3s ease-out;
 }
 
 .service-card h3 {
