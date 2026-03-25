@@ -690,12 +690,12 @@ a:active {
 
 
 .card-icon {
-  margin-bottom: 1rem;
+  padding: 1rem 0 0;
 }
 
 .card-icon img {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: auto;
   object-fit: contain;
 }
 
