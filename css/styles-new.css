@@ -680,7 +680,10 @@ a:active {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   &.glass-card {
      backdrop-filter: blur(0) saturate(0);
-  }
+  };
+  &.card-icon img{
+    transform: scale(1.2);
+  };
 }
 
 /* .service-card .glass-card:hover {
@@ -690,13 +693,14 @@ a:active {
 
 
 .card-icon {
-  margin-bottom: 1rem;
+  padding: 1rem 0 0;
 }
 
 .card-icon img {
-  width: 80px;
-  height: 80px;
+  width: 84px;
+  height: auto;
   object-fit: contain;
+  transition: transform .3s ease-out;
 }
 
 .service-card h3 {
